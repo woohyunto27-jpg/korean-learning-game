@@ -11,8 +11,6 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif;background:#F8F9FA;color:var(--dark);min-height:100vh;overflow-x:hidden}
 .page{display:none;min-height:100vh;flex-direction:column}
 .page.active{display:flex}
-
-/* Header */
 .header{background:#fff;padding:12px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 3px rgba(0,0,0,0.08);position:sticky;top:0;z-index:100}
 .header .back-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--light);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:.2s}
 .header .back-btn:hover{background:#e8e8e8}
@@ -20,8 +18,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .level-badge{background:linear-gradient(135deg,var(--primary),#357ABD);color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap}
 .xp-bar{height:4px;background:#e8e8e8;border-radius:2px;margin-top:4px;width:100px}
 .xp-bar-fill{height:100%;background:var(--success);border-radius:2px;transition:width .5s}
-
-/* Home Page */
 .home-content{flex:1;padding:20px;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .game-title{text-align:center;margin-bottom:8px}
 .game-title h1{font-size:24px;background:linear-gradient(135deg,var(--primary),var(--coral));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -43,22 +39,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .day-cell .day-title{font-size:10px;color:var(--gray);margin-top:2px;line-height:1.2}
 .day-cell .check{position:absolute;top:6px;right:6px;font-size:14px}
 .day-cell.locked .lock-icon{position:absolute;top:6px;right:6px;font-size:12px;opacity:.5}
-
-/* Lesson Page */
 .lesson-content{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .step-bar{display:flex;padding:12px 20px;gap:4px;background:#fff;border-bottom:1px solid var(--border)}
 .step-dot{flex:1;height:4px;border-radius:2px;background:#e8e8e8;transition:.3s}
 .step-dot.done{background:var(--success)}
 .step-dot.active{background:var(--primary)}
 .step-container{flex:1;overflow-y:auto;padding:20px;-webkit-overflow-scrolling:touch}
-
-/* Step 1: Scene */
 .scene-card{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;padding:24px;color:#fff;margin-bottom:20px}
 .scene-card .scene-emoji{font-size:48px;margin-bottom:12px}
 .scene-card h2{font-size:20px;margin-bottom:8px}
 .scene-card p{font-size:15px;line-height:1.6;opacity:.9}
-
-/* Step 2: Image Quiz */
 .quiz-container{text-align:center}
 .quiz-scene{font-size:72px;margin:20px 0;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))}
 .quiz-question{font-size:16px;color:var(--dark);margin-bottom:20px;font-weight:600}
@@ -68,8 +58,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .quiz-option.selected{border-color:var(--primary);background:rgba(74,144,217,0.1)}
 .quiz-option.correct{border-color:var(--success);background:rgba(0,184,148,0.1);color:var(--success)}
 .quiz-option.wrong{border-color:var(--coral);background:rgba(255,107,107,0.1);color:var(--coral)}
-
-/* Step 3: Learn */
 .learn-list{display:flex;flex-direction:column;gap:14px}
 .learn-card{background:#fff;border-radius:12px;padding:16px;border-left:4px solid var(--primary);box-shadow:0 1px 4px rgba(0,0,0,0.06)}
 .learn-card .korean-row{display:flex;align-items:center;gap:8px;margin-bottom:4px}
@@ -81,8 +69,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .learn-card .chinese{font-size:14px;color:var(--dark);margin-bottom:4px}
 .learn-card .usage{font-size:12px;color:var(--gray);background:var(--light);padding:4px 10px;border-radius:6px;display:inline-block}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-
-/* Step 4: Dialogue */
+.vocab-container{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+.vocab-card{background:#fff;border-radius:10px;padding:12px;border-left:3px solid var(--coral);box-shadow:0 1px 3px rgba(0,0,0,0.05);display:flex;flex-direction:column;gap:2px}
+.vocab-card .vocab-kr{font-size:17px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:6px}
+.vocab-card .vocab-kr .speak-btn{width:26px;height:26px;border-radius:50%;border:none;background:rgba(74,144,217,0.1);color:var(--primary);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:.2s;flex-shrink:0}
+.vocab-card .vocab-kr .speak-btn:hover{background:rgba(74,144,217,0.2);transform:scale(1.1)}
+.vocab-card .vocab-kr .speak-btn.playing{background:var(--primary);color:#fff;animation:pulse .8s ease infinite}
+.vocab-card .vocab-cn{font-size:13px;color:var(--dark)}
+.vocab-card .vocab-pron{font-size:11px;color:var(--coral);font-style:italic}
+.vocab-card .vocab-usage{font-size:11px;color:var(--gray);background:var(--light);padding:2px 8px;border-radius:4px;display:inline-block;margin-top:2px}
+.vocab-title{font-size:18px;font-weight:700;margin-bottom:12px}
+.vocab-bottom-tip{text-align:center;color:var(--gray);font-size:13px;margin-top:16px}
 .chat-area{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;-webkit-overflow-scrolling:touch}
 .msg{display:flex;gap:8px;max-width:85%;animation:fadeIn .3s}
 .msg.ai{align-self:flex-start}
@@ -103,8 +100,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .chat-send{width:40px;height:40px;border-radius:50%;border:none;background:var(--primary);color:#fff;cursor:pointer;font-size:16px;transition:.2s;display:flex;align-items:center;justify-content:center}
 .chat-send:hover{background:#357ABD}
 .hint-text{text-align:center;font-size:12px;color:var(--gray);margin-top:8px;padding:0 16px}
-
-/* Step 5: Score */
 .score-container{text-align:center;padding:20px 0}
 .score-ring{position:relative;width:180px;height:180px;margin:0 auto 24px}
 .score-ring svg{transform:rotate(-90deg)}
@@ -119,8 +114,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .score-item .value.mid{color:var(--primary)}
 .score-item .value.low{color:var(--coral)}
 .score-comment{background:var(--light);border-radius:12px;padding:14px;margin-top:16px;font-size:14px;color:var(--dark);text-align:left;line-height:1.6}
-
-/* Step 6: Reward */
 .reward-container{text-align:center;padding:40px 20px}
 .reward-container .trophy{font-size:80px;margin-bottom:16px;animation:bounce .6s ease infinite alternate}
 .reward-container h2{font-size:24px;margin-bottom:8px}
@@ -128,8 +121,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .reward-container .new-level{background:linear-gradient(135deg,var(--primary),#357ABD);color:#fff;padding:10px 24px;border-radius:24px;display:inline-block;margin-bottom:20px;font-weight:600}
 .reward-container .progress-bar{height:8px;background:#e8e8e8;border-radius:4px;max-width:280px;margin:0 auto 8px}
 .reward-container .progress-fill{height:100%;background:var(--success);border-radius:4px;transition:width 1s}
-
-/* Buttons */
 .btn{border:none;border-radius:12px;padding:14px 28px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
 .btn-primary{background:var(--primary);color:#fff}
 .btn-primary:hover{background:#357ABD}
@@ -143,18 +134,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .mt-16{margin-top:16px}
 .mt-24{margin-top:24px}
 .text-center{text-align:center}
-
-/* Toast */
 .toast{position:fixed;top:60px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:10px 24px;border-radius:24px;font-size:14px;z-index:999;opacity:0;transition:.3s;pointer-events:none}
 .toast.show{opacity:1}
-
-/* Animations */
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-8px)}}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .animate-in{animation:slideUp .4s ease}
-
-/* Responsive */
 @media(max-width:400px){
   .days-grid{grid-template-columns:repeat(4,1fr);gap:8px}
   .day-cell{padding:10px 4px}
@@ -162,13 +147,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
   .day-cell .day-title{font-size:9px}
   .game-title h1{font-size:20px}
   .level-info-card{padding:14px}
+  .vocab-container{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div id="toast" class="toast"></div>
-
-<!-- HOME PAGE -->
 <div id="page-home" class="page active">
   <div class="header">
     <div class="title">🏢 首尔广告公司</div>
@@ -197,8 +181,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
     </div>
   </div>
 </div>
-
-<!-- LESSON PAGE -->
 <div id="page-lesson" class="page">
   <div class="header">
     <button class="back-btn" onclick="goHome()">←</button>
@@ -210,7 +192,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
     <div class="step-container" id="step-container"></div>
   </div>
 </div>
-
 <script>
 // ============ COURSE DATA ============
 const LEVELS = [
@@ -230,13 +211,29 @@ const COURSE = [
      {kr:'반갑습니다',cn:'很高兴认识您',pron:'ban-gap-seum-ni-da',usage:'初次见面时表达喜悦'},
      {kr:'잘 부탁드립니다',cn:'请多关照',pron:'jal bu-tak-deu-rim-ni-da',usage:'自我介绍后必说，表达谦虚'},
      {kr:'처음 뵙겠습니다',cn:'初次见面',pron:'cheo-eum boep-get-seum-ni-da',usage:'正式的初次见面问候'},
-     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'表达感谢，万能用语'}
+     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'表达感谢，万能用语'},
+     {kr:'오늘부터 출근합니다',cn:'从今天开始上班',pron:'o-neul-bu-teo chul-geun-ham-ni-da',usage:'说明入职日'},
+     {kr:'사원증 받을 수 있을까요?',cn:'可以领工牌吗？',pron:'sa-won-jeung ba-deul su it-seul-kka-yo',usage:'领取工牌'},
+     {kr:'자리가 어디인가요?',cn:'我的座位在哪？',pron:'ja-ri-ga eo-di-in-ga-yo',usage:'寻找工位'}
    ],
    dialogue:[
      {role:'ai',text:'안녕하세요! 오늘부터 함께 일하게 되었네요. 처음 뵙겠습니다! 👋',hint:'试着用韩语回应问候'},
      {role:'ai',text:'오, 한국어를 하시네요! 반갑습니다~ 잘 부탁드립니다! 😊',hint:'用"请多关照"来回应'},
-     {role:'ai',text:'정말 잘하시네요! 우리 회사에서 열심히 해봐요! 화이팅! 💪',hint:'用"谢谢"结束对话'}
-   ]},
+     {role:'ai',text:'정말 잘하시네요! 우리 회사에서 열심히 해봐요! 화이팅! 💪',hint:'用"谢谢"结束对话'},
+     {role:'ai',text:'오늘부터 출근하시는군요! 사원증은 여기 있습니다. 🪪',hint:'询问工牌或座位'},
+     {role:'ai',text:'자리는 저쪽이에요. 뭐 필요한 거 있으면 언제든 말씀하세요! 😊',hint:'用"请多关照"回应'}
+   ],
+   vocabulary:[
+     {kr:'회사',cn:'公司',pron:'hoe-sa',usage:'职场通用'},
+     {kr:'직장',cn:'职场',pron:'jik-jang',usage:'职场通用'},
+     {kr:'동료',cn:'同事',pron:'dong-ryo',usage:'认识同事'},
+     {kr:'부서',cn:'部门',pron:'bu-seo',usage:'组织架构'},
+     {kr:'신입',cn:'新人',pron:'sin-ip',usage:'入职相关'},
+     {kr:'출근',cn:'上班',pron:'chul-geun',usage:'日常通勤'},
+     {kr:'사무실',cn:'办公室',pron:'sa-mu-sil',usage:'工作场所'},
+     {kr:'명함',cn:'名片',pron:'myeong-ham',usage:'初次见面'}
+   ]
+  },
   {day:2,title:'认识同事',emoji:'👫',scene:'你被带到工位，旁边的同事好奇地问你的名字和团队。第一次正式介绍自己，有点紧张但很期待！',
    quiz:{emoji:'🪑💬👋',q:'同事问你是哪个团队的，你怎么说"我加入了AE团队"？',opts:['AE 팀에 들어왔습니다','AE 팀에 가고 싶습니다','AE 팀이 어디예요','AE 팀이 좋습니다'],ans:0},
    expressions:[
@@ -244,13 +241,29 @@ const COURSE = [
      {kr:'___ 팀에 들어왔습니다',cn:'加入了___团队',pron:'___ tim-e deul-eo-wat-seum-ni-da',usage:'说明所属团队'},
      {kr:'만나서 반갑습니다',cn:'很高兴认识你',pron:'man-na-seo ban-gap-seum-ni-da',usage:'认识新同事'},
      {kr:'필요하시면 말씀해 주세요',cn:'需要的话请告诉我',pron:'pil-yo-ha-si-myeon mal-sseum-hae ju-se-yo',usage:'主动提供帮助'},
-     {kr:'잘 모르겠습니다',cn:'我不太清楚',pron:'jal mo-reu-get-seum-ni-da',usage:'不知道时诚实回答'}
+     {kr:'잘 모르겠습니다',cn:'我不太清楚',pron:'jal mo-reu-get-seum-ni-da',usage:'不知道时诚实回答'},
+     {kr:'혹시 점심 같이 하실래요?',cn:'要不要一起吃午饭？',pron:'hok-si jeom-sim ga-chi ha-sil-lae-yo',usage:'邀请同事'},
+     {kr:'연락처 알려 주세요',cn:'请告诉我联系方式',pron:'yeol-lak-cheo al-lyeo ju-se-yo',usage:'交换信息'},
+     {kr:'옆자리에 앉아도 될까요?',cn:'可以坐旁边吗？',pron:'yeop-ja-ri-e an-ja-do doel-kka-yo',usage:'确认座位'}
    ],
    dialogue:[
      {role:'ai',text:'안녕! 옆자리에 앉은 거 맞죠? 이름이 어떻게 되세요? 😄',hint:'告诉对方你的名字'},
      {role:'ai',text:'아, 그렇군요! 저는 민수라고 해요. 어떤 팀에 들어오셨어요?',hint:'说明你加入了哪个团队'},
-     {role:'ai',text:'AE 팀이라니 같이 일할 일이 많겠네요! 필요하시면 말씀해 주세요~',hint:'用"很高兴认识你"或"需要的话告诉我"回应'}
-   ]},
+     {role:'ai',text:'AE 팀이라니 같이 일할 일이 많겠네요! 필요하시면 말씀해 주세요~',hint:'用"很高兴认识你"或"需要的话告诉我"回应'},
+     {role:'ai',text:'연락처 교환할까요? 카톡 아이디 알려드릴게요! 📱',hint:'请告诉对方你的联系方式'},
+     {role:'ai',text:'등록했어요! 나중에 필요하면 연락 주세요~ 😄',hint:'用"需要的话告诉我"回应'}
+   ],
+   vocabulary:[
+     {kr:'팀장',cn:'组长',pron:'tim-jang',usage:'团队角色'},
+     {kr:'대리',cn:'代理',pron:'dae-ri',usage:'职级'},
+     {kr:'과장',cn:'课长',pron:'gwa-jang',usage:'职级'},
+     {kr:'부장',cn:'部长',pron:'bu-jang',usage:'职级'},
+     {kr:'옆자리',cn:'旁边座位',pron:'yeop-ja-ri',usage:'办公室'},
+     {kr:'점심시간',cn:'午餐时间',pron:'jeom-sim-si-gan',usage:'日常'},
+     {kr:'휴게실',cn:'休息室',pron:'hyu-ge-sil',usage:'办公室'},
+     {kr:'연락처',cn:'联系方式',pron:'yeol-lak-cheo',usage:'交换信息'}
+   ]
+  },
   {day:3,title:'自我介绍',emoji:'🎤',scene:'团队晨会上，经理让你做自我介绍。所有人都看着你，是时候展现你的实力了！',
    quiz:{emoji:'🎤👔👥',q:'自我介绍时想表达"我会努力的"，用韩语怎么说？',opts:['열심히 하겠습니다','열심히 했습니다','열심히 하고 싶습니다','열심히 합니다'],ans:0},
    expressions:[
@@ -258,13 +271,26 @@ const COURSE = [
      {kr:'광고 일을 한 지 ___년 됐습니다',cn:'做广告___年了',pron:'gwang-go il-eul han ji ___nyeon dwaet-seum-ni-da',usage:'说明从业年限'},
      {kr:'이렇게 해주시면 감사하겠습니다',cn:'这样做的话我会很感激',pron:'i-reoh-ke hae-ju-si-myeon gam-sa-ha-get-seum-ni-da',usage:'礼貌地提出请求'},
      {kr:'열심히 하겠습니다',cn:'我会努力的',pron:'yeol-sim-hi ha-get-seum-ni-da',usage:'表达决心'},
-     {kr:'많이 가르쳐 주세요',cn:'请多多指教',pron:'man-i ga-reu-chyeo ju-se-yo',usage:'谦虚请求指导'}
+     {kr:'많이 가르쳐 주세요',cn:'请多多指教',pron:'man-i ga-reu-chyeo ju-se-yo',usage:'谦虚请求指导'},
+     {kr:'디지털 마케팅을 전문으로 합니다',cn:'我专攻数字营销',pron:'di-ji-teol ma-ke-ting-eul jeon-mun-eu-ro ham-ni-da',usage:'说明专业领域'},
+     {kr:'잘 따라하겠습니다',cn:'我会好好学习',pron:'jal tta-ra-ha-get-seum-ni-da',usage:'表达虚心'}
    ],
    dialogue:[
      {role:'ai',text:'자, 새 팀원 소개해주세요. 간단히 자기소개 부탁드립니다~',hint:'介绍你从哪里来'},
      {role:'ai',text:'오, 중국에서 오셨군요! 광고 경력은 어떻게 되세요?',hint:'说明你的从业年限'},
-     {role:'ai',text:'좋은 경험이네요! 앞으로 잘 부탁드립니다.',hint:'用"我会努力的"或"请多多指教"表达决心'}
-   ]},
+     {role:'ai',text:'좋은 경험이네요! 앞으로 잘 부탁드립니다.',hint:'用"我会努力的"或"请多多指教"表达决心'},
+     {role:'ai',text:'겸손하시네요! 디지털 마케팅 전문이시군요. 앞으로 성장할 기회 많을 거예요! 👏',hint:'表达虚心学习的态度'}
+   ],
+   vocabulary:[
+     {kr:'자기소개',cn:'自我介绍',pron:'ja-gi-so-gae',usage:'自我介绍'},
+     {kr:'경력',cn:'经历',pron:'gyeong-ryeok',usage:'履历说明'},
+     {kr:'전문',cn:'专攻',pron:'jeon-mun',usage:'专业领域'},
+     {kr:'소속',cn:'所属',pron:'so-sok',usage:'组织归属'},
+     {kr:'경험',cn:'经验',pron:'gyeong-heom',usage:'工作经历'},
+     {kr:'포부',cn:'抱负',pron:'po-bu',usage:'表达决心'},
+     {kr:'인사',cn:'问候',pron:'in-sa',usage:'打招呼'}
+   ]
+  },
   {day:4,title:'预约会议',emoji:'📅',scene:'组长让你帮忙预约一个客户会议，你需要跟客户确认时间。第一次独立处理会议安排！',
    quiz:{emoji:'📅🕐💬',q:'你想问"会议时间是什么时候？"，用韩语怎么说？',opts:['회의 시간이 어떻게 되나요?','회의 시간이 언제인가요?','회의를 좋아하세요?','회의가 끝났습니다'],ans:0},
    expressions:[
@@ -272,13 +298,27 @@ const COURSE = [
      {kr:'___시 가능하신가요?',cn:'___点可以吗？',pron:'___-si ga-neung-ha-sin-ga-yo',usage:'提议会议时间'},
      {kr:'회의실 예약해 드릴까요?',cn:'需要我预约会议室吗？',pron:'hoe-ui-sil ye-yak-hae deu-ril-kka-yo',usage:'主动提供帮助'},
      {kr:'일정 확인 부탁드립니다',cn:'请确认日程',pron:'il-jeong hwak-in bu-tak-deu-rim-ni-da',usage:'请求确认'},
-     {kr:'변경이 있으면 알려 주세요',cn:'有变动请告诉我',pron:'byeon-gyeong-i it-seu-myeon al-lyeo ju-se-yo',usage:'预留弹性'}
+     {kr:'변경이 있으면 알려 주세요',cn:'有变动请告诉我',pron:'byeon-gyeong-i it-seu-myeon al-lyeo ju-se-yo',usage:'预留弹性'},
+     {kr:'다음 주 회의 일정 잡고 싶습니다',cn:'想安排下周会议日程',pron:'da-eum ju hoe-ui il-jeong jap-go sip-seum-ni-da',usage:'提议安排会议'},
+     {kr:'참석자 명단 공유드리겠습니다',cn:'会分享参会名单',pron:'cham-seok-ja myeong-dan gong-yu-deu-ri-get-seum-ni-da',usage:'提供参会信息'}
    ],
    dialogue:[
      {role:'ai',text:'안녕하세요, 다음 주 회의 일정을 잡고 싶은데요. 혹시 가능하신 시간이 있으신가요?',hint:'询问会议时间'},
      {role:'ai',text:'화요일 오후 2시는 어떠세요?',hint:'确认时间是否可以'},
-     {role:'ai',text:'네, 좋습니다! 그럼 화요일 2시에 뵙겠습니다.',hint:'请对方确认日程，并告知有变动要告诉你'}
-   ]},
+     {role:'ai',text:'네, 좋습니다! 그럼 화요일 2시에 뵙겠습니다.',hint:'请对方确认日程，并告知有变动要告诉你'},
+     {role:'ai',text:'네, 화요일 2시로 확정하겠습니다. 참석자 명단도 공유해 주시겠어요?',hint:'分享参会名单，确认日程'}
+   ],
+   vocabulary:[
+     {kr:'회의실',cn:'会议室',pron:'hoe-ui-sil',usage:'会议安排'},
+     {kr:'일정',cn:'日程',pron:'il-jeong',usage:'时间安排'},
+     {kr:'참석',cn:'出席',pron:'cham-seok',usage:'会议参与'},
+     {kr:'확정',cn:'确认',pron:'hwak-jeong',usage:'确认日程'},
+     {kr:'변경',cn:'变更',pron:'byeon-gyeong',usage:'日程调整'},
+     {kr:'안건',cn:'议程',pron:'an-geon',usage:'会议内容'},
+     {kr:'예약',cn:'预约',pron:'ye-yak',usage:'预订'},
+     {kr:'가능',cn:'可行',pron:'ga-neung',usage:'时间确认'}
+   ]
+  },
   {day:5,title:'参加晨会',emoji:'☀️',scene:'每天早上9点的团队晨会，你第一次独立做今日工作汇报。深呼吸，你可以的！',
    quiz:{emoji:'☀️📋👥',q:'晨会上你想说"今天分享日程"，用韩语怎么说？',opts:['오늘 일정 공유드리겠습니다','오늘 일정이 없습니다','오늘 뭐 해요?','일정을 좋아합니다'],ans:0},
    expressions:[
@@ -286,13 +326,27 @@ const COURSE = [
      {kr:'오늘 일정 공유드리겠습니다',cn:'今天分享日程',pron:'o-neul il-jeong gong-yu-deu-ri-get-seum-ni-da',usage:'开始汇报日程'},
      {kr:'진행 상황 보고드리겠습니다',cn:'汇报进展',pron:'jin-haeng sang-hwang bo-go-deu-ri-get-seum-ni-da',usage:'汇报工作进展'},
      {kr:'질문 있으신가요?',cn:'有问题吗？',pron:'jil-mun it-seu-sin-ga-yo',usage:'邀请提问'},
-     {kr:'다음 주제 넘어가겠습니다',cn:'进入下一个议题',pron:'da-eum ju-je neom-eo-ga-get-seum-ni-da',usage:'推进会议流程'}
+     {kr:'다음 주제 넘어가겠습니다',cn:'进入下一个议题',pron:'da-eum ju-je neom-eo-ga-get-seum-ni-da',usage:'推进会议流程'},
+     {kr:'오늘 주요 업무는 ___입니다',cn:'今天主要工作是___',pron:'o-neul ju-yo eop-mu-neun ___-im-ni-da',usage:'汇报主要工作'},
+     {kr:'도움이 필요하신 분 계신가요?',cn:'有谁需要帮助吗？',pron:'do-um-i pil-yo-ha-sin bun gye-sin-ga-yo',usage:'主动提供帮助'}
    ],
    dialogue:[
      {role:'ai',text:'좋은 아침입니다! 오늘 아침 회의 시작하겠습니다. 먼저 일정 공유해 주세요.',hint:'用"早上好"问候，然后分享今日日程'},
      {role:'ai',text:'네, 알겠습니다. 진행 상황도 보고해 주시겠어요?',hint:'汇报你的工作进展'},
-     {role:'ai',text:'수고하셨습니다. 다른 질문 있으신 분?',hint:'询问是否有问题，或进入下一个议题'}
-   ]},
+     {role:'ai',text:'수고하셨습니다. 다른 질문 있으신 분?',hint:'询问是否有问题，或进入下一个议题'},
+     {role:'ai',text:'네, 진행 상황 잘 들었습니다. 도움이 필요하신 분 계신가요?',hint:'主动询问是否有人需要帮助'}
+   ],
+   vocabulary:[
+     {kr:'아침회의',cn:'晨会',pron:'a-chim-hoe-ui',usage:'日常会议'},
+     {kr:'주요',cn:'主要',pron:'ju-yo',usage:'重点标注'},
+     {kr:'공유',cn:'分享',pron:'gong-yu',usage:'信息同步'},
+     {kr:'보고',cn:'汇报',pron:'bo-go',usage:'工作汇报'},
+     {kr:'진행',cn:'进行',pron:'jin-haeng',usage:'项目推进'},
+     {kr:'마치다',cn:'完成',pron:'ma-chi-da',usage:'任务完成'},
+     {kr:'주제',cn:'议题',pron:'ju-je',usage:'会议主题'},
+     {kr:'질문',cn:'提问',pron:'jil-mun',usage:'会议互动'}
+   ]
+  },
   {day:6,title:'讨论创意',emoji:'💡',scene:'创意brainstorming时间！你需要用韩语表达自己的想法，和团队碰撞灵感火花。',
    quiz:{emoji:'💡🗣️✨',q:'你想说"我有个想法"，用韩语怎么说？',opts:['아이디어가 있습니다','아이디어가 없습니다','아이디어가 좋습니다','아이디어가 어렵습니다'],ans:0},
    expressions:[
@@ -300,13 +354,28 @@ const COURSE = [
      {kr:'이 방향 어떠세요?',cn:'这个方向怎么样？',pron:'i bang-hyang eo-tteo-se-yo',usage:'征询意见'},
      {kr:'수정해 보겠습니다',cn:'我来修改一下',pron:'su-jeong-hae bo-get-seum-ni-da',usage:'接受反馈后回应'},
      {kr:'피드백 감사합니다',cn:'感谢反馈',pron:'pi-deu-baek gam-sa-ham-ni-da',usage:'感谢他人建议'},
-     {kr:'한 번 시도해 봅시다',cn:'试一下吧',pron:'han beon si-do-hae bop-si-da',usage:'鼓励尝试'}
+     {kr:'한 번 시도해 봅시다',cn:'试一下吧',pron:'han beon si-do-hae bop-si-da',usage:'鼓励尝试'},
+     {kr:'이 컨셉은 어떨까요?',cn:'这个概念怎么样？',pron:'i keon-sep-eun eo-tteol-kka-yo',usage:'提出创意概念'},
+     {kr:'레퍼런스 공유드리겠습니다',cn:'分享参考案例',pron:'re-peo-ren-seu gong-yu-deu-ri-get-seum-ni-da',usage:'提供参考'}
    ],
    dialogue:[
      {role:'ai',text:'자, 이번 캠페인 아이디어를 나눠볼까요? 어떤 생각 있으신 분?',hint:'说出你的想法'},
      {role:'ai',text:'오, 재밌네요! 조금 더 구체적으로 설명해 주시겠어요?',hint:'询问对方对这个方向的看法'},
-     {role:'ai',text:'좋은 방향이에요! 조금 수정하면 완벽할 것 같아요.',hint:'感谢反馈，表示会修改'}
-   ]},
+     {role:'ai',text:'좋은 방향이에요! 조금 수정하면 완벽할 것 같아요.',hint:'感谢反馈，表示会修改'},
+     {role:'ai',text:'좋은 방향이에요! 레퍼런스 있으시면 공유해 주시겠어요?',hint:'分享参考案例'},
+     {role:'ai',text:'레퍼런스 감사합니다! 조금 더 발전시켜서 다음 미팅에 보여주세요~ ✨',hint:'表示会继续深化'}
+   ],
+   vocabulary:[
+     {kr:'브레인스토밍',cn:'头脑风暴',pron:'beu-re-in-seu-to-ming',usage:'创意讨论'},
+     {kr:'컨셉',cn:'概念',pron:'keon-sep',usage:'创意方向'},
+     {kr:'레퍼런스',cn:'参考',pron:'re-peo-ren-seu',usage:'案例参考'},
+     {kr:'키워드',cn:'关键词',pron:'ki-wo-deu',usage:'创意提炼'},
+     {kr:'수정',cn:'修改',pron:'su-jeong',usage:'方案调整'},
+     {kr:'발표',cn:'发表',pron:'bal-pyo',usage:'创意展示'},
+     {kr:'인사이트',cn:'洞察',pron:'in-sa-i-teu',usage:'消费者洞察'},
+     {kr:'캠페인',cn:'活动',pron:'kaem-pe-in',usage:'广告活动'}
+   ]
+  },
   {day:7,title:'接收Brief',emoji:'📋',scene:'创意总监给你发来了客户的Brief文档，信息量大！你需要用韩语确认关键信息。',
    quiz:{emoji:'📋❓📝',q:'你想问"截止日期是什么时候？"，用韩语怎么说？',opts:['마감일이 언제인가요?','마감일이 좋습니다','마감일이 없습니다','마감일을 좋아합니다'],ans:0},
    expressions:[
@@ -314,13 +383,28 @@ const COURSE = [
      {kr:'마감일이 언제인가요?',cn:'截止日期是什么时候？',pron:'ma-gam-i-ri eon-je-in-ga-yo',usage:'询问截止日期'},
      {kr:'타겟 고객이 누구인가요?',cn:'目标客户是谁？',pron:'ta-get go-ga-gi nu-gu-in-ga-yo',usage:'确认目标受众'},
      {kr:'예산 범위를 알 수 있을까요?',cn:'能知道预算范围吗？',pron:'ye-san beom-wi-reul al su it-seul-kka-yo',usage:'询问预算'},
-     {kr:'우선순위를 정해 주세요',cn:'请确定优先级',pron:'u-seon-sun-wi-reul jeong-hae ju-se-yo',usage:'请求明确优先级'}
+     {kr:'우선순위를 정해 주세요',cn:'请确定优先级',pron:'u-seon-sun-wi-reul jeong-hae ju-se-yo',usage:'请求明确优先级'},
+     {kr:'디리버러블이 어떻게 되나요?',cn:'交付物是什么？',pron:'di-ri-beo-reo-beul-i eo-tteo-ke doe-na-yo',usage:'确认交付物'},
+     {kr:'클라이언트 요구사항 정리했습니다',cn:'整理了客户需求',pron:'keul-la-i-eon-teu yo-gu-sa-hang jeong-ri-hat-seum-ni-da',usage:'整理需求'}
    ],
    dialogue:[
      {role:'ai',text:'이번 프로젝트 브리프 보내드렸는데 확인하셨나요?',hint:'确认已收到Brief'},
      {role:'ai',text:'네, 확인 감사합니다. 마감일이나 예산 관련 질문 있으시면 편하게 물어보세요.',hint:'询问截止日期或预算'},
-     {role:'ai',text:'마감일은 이번 달 말이에요. 예산은 협의 가능합니다. 우선순위 정해드릴게요.',hint:'请求明确优先级'}
-   ]},
+     {role:'ai',text:'마감일은 이번 달 말이에요. 예산은 협의 가능합니다. 우선순위 정해드릴게요.',hint:'请求明确优先级'},
+     {role:'ai',text:'네, 마감일과 예산 확인했습니다. 디리버러블은 어떻게 되나요?',hint:'确认交付物'},
+     {role:'ai',text:'좋습니다! 요구사항 정리해 주셔서 감사해요. 추가 자료 필요하시면 말씀하세요.',hint:'请求更多资料或整理客户需求'}
+   ],
+   vocabulary:[
+     {kr:'브리프',cn:'Brief',pron:'beu-ri-peu',usage:'项目启动'},
+     {kr:'마감일',cn:'截止日',pron:'ma-gam-il',usage:'时间管理'},
+     {kr:'타겟',cn:'目标',pron:'ta-get',usage:'受众定位'},
+     {kr:'예산',cn:'预算',pron:'ye-san',usage:'费用控制'},
+     {kr:'요구사항',cn:'需求',pron:'yo-gu-sa-hang',usage:'客户需求'},
+     {kr:'디리버러블',cn:'交付物',pron:'di-ri-beo-reo-beul',usage:'项目产出'},
+     {kr:'우선순위',cn:'优先级',pron:'u-seon-sun-wi',usage:'任务排序'},
+     {kr:'견적',cn:'报价',pron:'gyeong-jeok',usage:'费用估算'}
+   ]
+  },
   {day:8,title:'向客户汇报',emoji:'📊',scene:'第一次向客户做项目汇报！客户表情严肃，但你准备充分。展示你的专业度！',
    quiz:{emoji:'📊🎤💼',q:'汇报开始时你想说"我来汇报"，用韩语怎么说？',opts:['보고드리겠습니다','보고 받겠습니다','보고 싶습니다','보고했습니다'],ans:0},
    expressions:[
@@ -328,13 +412,28 @@ const COURSE = [
      {kr:'현재 진행 상황입니다',cn:'目前的进展情况',pron:'hyeon-jae jin-haeng sang-hwang-im-ni-da',usage:'说明当前状态'},
      {kr:'질문 받겠습니다',cn:'接受提问',pron:'jil-mun bat-get-seum-ni-da',usage:'邀请提问'},
      {kr:'다음 단계를 설명드리겠습니다',cn:'说明下一步',pron:'da-eum dan-gye-reul seol-myeong-deu-ri-get-seum-ni-da',usage:'继续推进'},
-     {kr:'의견 부탁드립니다',cn:'请提意见',pron:'ui-gyeon bu-tak-deu-rim-ni-da',usage:'征求意见'}
+     {kr:'의견 부탁드립니다',cn:'请提意见',pron:'ui-gyeon bu-tak-deu-rim-ni-da',usage:'征求意见'},
+     {kr:'결과부터 말씀드리겠습니다',cn:'先说结论',pron:'gyeol-gwa-bu-teo mal-sseum-deu-ri-get-seum-ni-da',usage:'高效汇报'},
+     {kr:'데이터로 확인할 수 있습니다',cn:'可以用数据确认',pron:'de-i-teo-ro hwak-in-hal su it-seum-ni-da',usage:'数据支撑'}
    ],
    dialogue:[
      {role:'ai',text:'안녕하세요, 오늘 프로젝트 진행 상황 보고 부탁드립니다.',hint:'开始你的汇报'},
      {role:'ai',text:'네, 현재 상황 잘 알겠습니다. 다음 단계는 어떻게 되나요?',hint:'说明下一步计划'},
-     {role:'ai',text:'좋습니다. 마지막으로 의견이나 질문 있으시면 받겠습니다.',hint:'邀请提问或请对方提意见'}
-   ]},
+     {role:'ai',text:'좋습니다. 마지막으로 의견이나 질문 있으시면 받겠습니다.',hint:'邀请提问或请对方提意见'},
+     {role:'ai',text:'데이터가 인상적이네요! 혹시 개선 방안도 준비하셨나요?',hint:'说明准备了改进方案'},
+     {role:'ai',text:'좋은 방안이에요! 그럼 이 안으로 진행하겠습니다. 수고하셨습니다. 👏',hint:'感谢对方，结束汇报'}
+   ],
+   vocabulary:[
+     {kr:'보고',cn:'汇报',pron:'bo-go',usage:'工作汇报'},
+     {kr:'프레젠테이션',cn:'演示',pron:'peu-re-jen-te-i-syeon',usage:'客户展示'},
+     {kr:'슬라이드',cn:'幻灯片',pron:'seul-la-i-deu',usage:'汇报材料'},
+     {kr:'데이터',cn:'数据',pron:'de-i-teo',usage:'数据支撑'},
+     {kr:'결과',cn:'结果',pron:'gyeol-gwa',usage:'项目成果'},
+     {kr:'개선',cn:'改进',pron:'gae-seon',usage:'方案优化'},
+     {kr:'의견',cn:'意见',pron:'ui-gyeon',usage:'征求反馈'},
+     {kr:'질의응답',cn:'问答',pron:'ji-ri-eung-dap',usage:'互动环节'}
+   ]
+  },
   {day:9,title:'修改方案',emoji:'✏️',scene:'客户反馈来了，需要修改方案。你要跟团队和客户沟通修改内容，保证各方信息一致。',
    quiz:{emoji:'✏️🔄💬',q:'你想说"已准备修改方案"，用韩语怎么说？',opts:['수정안 준비했습니다','수정안 원합니다','수정안 어렵습니다','수정안이 없습니다'],ans:0},
    expressions:[
@@ -342,13 +441,28 @@ const COURSE = [
      {kr:'이 부분 변경했습니다',cn:'修改了这个部分',pron:'i bu-bun byeon-gyeong-hat-seum-ni-da',usage:'说明修改内容'},
      {kr:'확인 부탁드립니다',cn:'请确认',pron:'hwak-in bu-tak-deu-rim-ni-da',usage:'请求确认修改'},
      {kr:'추가 수정 필요하시면 말씀해 주세요',cn:'需要再改请告诉我',pron:'chu-ga su-jeong pil-yo-ha-si-myeon mal-sseum-hae ju-se-yo',usage:'提供后续修改空间'},
-     {kr:'최종 버전입니다',cn:'这是最终版本',pron:'choe-jong beo-jeon-im-ni-da',usage:'确认最终稿'}
+     {kr:'최종 버전입니다',cn:'这是最终版本',pron:'choe-jong beo-jeon-im-ni-da',usage:'确认最终稿'},
+     {kr:'피드백 반영했습니다',cn:'已反映反馈',pron:'pi-deu-baek ban-yeong-hat-seum-ni-da',usage:'告知已修改'},
+     {kr:'클라이언트 승인 후 진행하겠습니다',cn:'客户批准后推进',pron:'keul-la-i-eon-teu seung-in hu jin-haeng-ha-get-seum-ni-da',usage:'等待确认'}
    ],
    dialogue:[
      {role:'ai',text:'클라이언트 피드백 받았는데, 수정안 준비해 주실 수 있나요?',hint:'告知已准备修改方案'},
      {role:'ai',text:'어떤 부분 수정하셨나요?',hint:'说明修改了哪些部分'},
-     {role:'ai',text:'네, 확인해 보겠습니다. 추가 수정 필요하면 다시 연락드릴게요.',hint:'请对方确认，并表示可以继续修改'}
-   ]},
+     {role:'ai',text:'네, 확인해 보겠습니다. 추가 수정 필요하면 다시 연락드릴게요.',hint:'请对方确认，并表示可以继续修改'},
+     {role:'ai',text:'피드백 반영했습니다! A/B 테스트도 제안하고 싶은데 가능할까요?',hint:'建议做A/B测试'},
+     {role:'ai',text:'좋은 생각이에요! 클라이언트 승인 후 진행하겠습니다. 😊',hint:'表示会等客户批准后推进'}
+   ],
+   vocabulary:[
+     {kr:'수정안',cn:'修改方案',pron:'su-jeong-an',usage:'方案迭代'},
+     {kr:'반영',cn:'反映',pron:'ban-yeong',usage:'反馈处理'},
+     {kr:'승인',cn:'批准',pron:'seung-in',usage:'审批流程'},
+     {kr:'버전',cn:'版本',pron:'beo-jeon',usage:'文件管理'},
+     {kr:'피드백',cn:'反馈',pron:'pi-deu-baek',usage:'意见收集'},
+     {kr:'테스트',cn:'测试',pron:'te-seu-teu',usage:'效果验证'},
+     {kr:'최종',cn:'最终',pron:'choe-jong',usage:'版本确认'},
+     {kr:'초안',cn:'草稿',pron:'cho-an',usage:'初版方案'}
+   ]
+  },
   {day:10,title:'约客户会议',emoji:'🤝',scene:'项目进入关键阶段，你需要主动约客户开会对齐方向。这是展示你职业素养的好机会！',
    quiz:{emoji:'📞📅🤝',q:'你想说"想约个会议"，用韩语怎么说？',opts:['미팅 요청드리고 싶습니다','미팅을 좋아합니다','미팅이 끝났습니다','미팅이 싫습니다'],ans:0},
    expressions:[
@@ -356,13 +470,28 @@ const COURSE = [
      {kr:'가능한 시간 알려 주세요',cn:'请告诉我可行时间',pron:'ga-neung-han si-gan al-lyeo ju-se-yo',usage:'询问可用时间'},
      {kr:'온라인 미팅 가능합니다',cn:'可以线上会议',pron:'on-la-in mi-ting ga-neung-ham-ni-da',usage:'提议线上方式'},
      {kr:'안건 미리 보내드리겠습니다',cn:'会提前发送议程',pron:'an-geon mi-ri bo-nae-deu-ri-get-seum-ni-da',usage:'展示专业性'},
-     {kr:'그때 뵙겠습니다',cn:'到时候见',pron:'geu-ttae boep-get-seum-ni-da',usage:'确认后道别'}
+     {kr:'그때 뵙겠습니다',cn:'到时候见',pron:'geu-ttae boep-get-seum-ni-da',usage:'确认后道别'},
+     {kr:'대면 미팅으로 진행하고 싶습니다',cn:'希望线下会议',pron:'dae-myeon mi-ting-eu-ro jin-haeng-ha-go sip-seum-ni-da',usage:'提议线下'},
+     {kr:'1시간 정도 소요될 것 같습니다',cn:'大概需要1小时',pron:'han-si-gan jeong-do so-yo doel geot ga-seum-ni-da',usage:'预估时长'}
    ],
    dialogue:[
      {role:'ai',text:'안녕하세요, 프로젝트 관련해서 미팅 잡고 싶은데 가능하신가요?',hint:'表达你想约会议'},
      {role:'ai',text:'네, 가능합니다. 언제가 좋으세요?',hint:'询问对方可行时间'},
-     {role:'ai',text:'목요일 오후 3시 좋습니다! 안건 미리 보내주시면 감사하겠습니다.',hint:'表示会提前发议程，并说到时候见'}
-   ]},
+     {role:'ai',text:'목요일 오후 3시 좋습니다! 안건 미리 보내주시면 감사하겠습니다.',hint:'表示会提前发议程，并说到时候见'},
+     {role:'ai',text:'온라인보다 대면이 좋겠네요. 1시간 정도 어떠세요?',hint:'预估会议时长，提议线下'},
+     {role:'ai',text:'네, 좋습니다! 장소는 저희가 섭외할게요. 안건 미리 보내주세요. 😊',hint:'安排场地，承诺发议程'}
+   ],
+   vocabulary:[
+     {kr:'미팅',cn:'会议',pron:'mi-ting',usage:'商务会议'},
+     {kr:'온라인',cn:'线上',pron:'on-la-in',usage:'会议形式'},
+     {kr:'대면',cn:'面谈',pron:'dae-myeon',usage:'线下沟通'},
+     {kr:'안건',cn:'议程',pron:'an-geon',usage:'会议内容'},
+     {kr:'소요',cn:'耗时',pron:'so-yo',usage:'时间预估'},
+     {kr:'섭외',cn:'安排',pron:'seo-oe',usage:'场地预约'},
+     {kr:'요청',cn:'请求',pron:'yo-cheong',usage:'正式请求'},
+     {kr:'확정',cn:'确定',pron:'hwak-jeong',usage:'日程确认'}
+   ]
+  },
   {day:11,title:'商务午餐',emoji:'🍽️',scene:'客户邀请你一起吃商务午餐。在韩国，饭桌上的社交同样重要！轻松但得体地交流吧。',
    quiz:{emoji:'🍽️🥢😊',q:'午餐时你想说"今天我请客"，用韩语怎么说？',opts:['오늘 제가 낼게요','오늘 비쌉니다','오늘 배고파요','오늘 바빠요'],ans:0},
    expressions:[
@@ -370,13 +499,28 @@ const COURSE = [
      {kr:'추천 메뉴 있으신가요?',cn:'有推荐的菜吗？',pron:'chu-cheon me-nyu it-seu-sin-ga-yo',usage:'询问推荐'},
      {kr:'이 근처 맛집 알아요',cn:'知道附近好吃的店',pron:'i geun-cheo mat-jip a-ra-yo',usage:'推荐餐厅'},
      {kr:'오늘 제가 낼게요',cn:'今天我请客',pron:'o-neul je-ga nael-ge-yo',usage:'主动买单'},
-     {kr:'다음에 또 같이 해요',cn:'下次再一起',pron:'da-eum-e tto ga-chi hae-yo',usage:'约定下次'}
+     {kr:'다음에 또 같이 해요',cn:'下次再一起',pron:'da-eum-e tto ga-chi hae-yo',usage:'约定下次'},
+     {kr:'오늘 메뉴 추천해 주세요',cn:'请推荐今天的菜',pron:'o-neul me-nyu chu-cheon-hae ju-se-yo',usage:'请对方推荐'},
+     {kr:'맛있게 드세요',cn:'请慢用',pron:'ma-sit-ge deu-se-yo',usage:'用餐礼节'}
    ],
    dialogue:[
      {role:'ai',text:'점심시간인데, 같이 식사하실래요?',hint:'接受邀请，或询问推荐菜'},
      {role:'ai',text:'이 근처에 좋은 한식당 있어요. 가보실래요?',hint:'表示知道好地方或同意去'},
-     {role:'ai',text:'식사 맛있게 하셨어요? 오늘은 제가 낼게요~',hint:'感谢对方，表示下次再一起'}
-   ]},
+     {role:'ai',text:'식사 맛있게 하셨어요? 오늘은 제가 낼게요~',hint:'感谢对方，表示下次再一起'},
+     {role:'ai',text:'식사 잘하셨어요? 오늘은 제가 낼게요~ 다음에는 제가 쏠게요! 😄',hint:'感谢对方，约定下次'},
+     {role:'ai',text:'아 아니에요, 다음에는 꼭 제가 낼게요! 맛있게 드셨다니 다행이에요. 🍽️',hint:'用"请慢用"或"下次我请"回应'}
+   ],
+   vocabulary:[
+     {kr:'식사',cn:'用餐',pron:'sik-sa',usage:'商务餐叙'},
+     {kr:'메뉴',cn:'菜单',pron:'me-nyu',usage:'点餐'},
+     {kr:'맛집',cn:'美食店',pron:'mat-jip',usage:'餐厅推荐'},
+     {kr:'한식당',cn:'韩餐厅',pron:'han-sik-dang',usage:'餐厅类型'},
+     {kr:'계산',cn:'结账',pron:'gye-san',usage:'买单'},
+     {kr:'회식',cn:'聚餐',pron:'hoe-sik',usage:'团队聚餐'},
+     {kr:'접대',cn:'招待',pron:'jeop-dae',usage:'商务接待'},
+     {kr:'건배',cn:'干杯',pron:'geon-bae',usage:'举杯祝酒'}
+   ]
+  },
   {day:12,title:'电话沟通',emoji:'📞',scene:'客户打来电话询问项目进度。电话沟通看不到表情，更需要清晰礼貌的韩语表达！',
    quiz:{emoji:'📞🗣️📝',q:'电话中你想说"请稍等"，用韩语怎么说？',opts:['잠시만 기다려 주세요','잠시만 가세요','잠시만 오세요','잠시만 보세요'],ans:0},
    expressions:[
@@ -384,13 +528,28 @@ const COURSE = [
      {kr:'잠시만 기다려 주세요',cn:'请稍等',pron:'jam-si-man gi-da-ryeo ju-se-yo',usage:'请对方等待'},
      {kr:'다시 전화드리겠습니다',cn:'我再打给您',pron:'da-si jeon-hwa-deu-ri-get-seum-ni-da',usage:'需要回拨时'},
      {kr:'메모 전달해 드리겠습니다',cn:'我会转达留言',pron:'me-mo jeon-dal-hae deu-ri-get-seum-ni-da',usage:'代为留言'},
-     {kr:'통화 감사합니다',cn:'感谢通话',pron:'tong-hwa gam-sa-ham-ni-da',usage:'结束通话'}
+     {kr:'통화 감사합니다',cn:'感谢通话',pron:'tong-hwa gam-sa-ham-ni-da',usage:'结束通话'},
+     {kr:'전화 번호 남겨주시겠어요?',cn:'能留个电话号码吗？',pron:'jeon-hwa beon-ho nam-gyeo-ju-si-get-seo-yo',usage:'请求留号码'},
+     {kr:'문자로 남겨주시면 확인하겠습니다',cn:'请发短信我确认',pron:'mun-ja-ro nam-gyeo-ju-si-myeon hwak-in-ha-get-seum-ni-da',usage:'请求留言'}
    ],
    dialogue:[
      {role:'ai',text:'여보세요, ___ 프로젝트 담당자님 계신가요?',hint:'接电话时先感谢来电'},
      {role:'ai',text:'네, 담당자님은 지금 자리에 안 계시는데요. 메모 남겨드릴까요?',hint:'请对方稍等，或表示会转达留言'},
-     {role:'ai',text:'네, 그럼 다시 전화드리라고 하겠습니다.',hint:'表示会再打过去，结束通话时感谢'}
-   ]},
+     {role:'ai',text:'네, 그럼 다시 전화드리라고 하겠습니다.',hint:'表示会再打过去，结束通话时感谢'},
+     {role:'ai',text:'담당자님 통화 중이신데, 문자로 남겨주시면 전달해 드릴게요.',hint:'请求留言或留号码'},
+     {role:'ai',text:'네, 확인했습니다. 담당자님 오시면 바로 연락드리라고 하겠습니다. 😊',hint:'表示会转达留言，结束通话'}
+   ],
+   vocabulary:[
+     {kr:'전화',cn:'电话',pron:'jeon-hwa',usage:'电话沟通'},
+     {kr:'여보세요',cn:'喂',pron:'yeo-bo-se-yo',usage:'接电话'},
+     {kr:'통화',cn:'通话',pron:'tong-hwa',usage:'通话中'},
+     {kr:'메모',cn:'留言',pron:'me-mo',usage:'电话留言'},
+     {kr:'문자',cn:'短信',pron:'mun-ja',usage:'文字消息'},
+     {kr:'연락',cn:'联系',pron:'yeol-lak',usage:'沟通联络'},
+     {kr:'부재중',cn:'不在座位',pron:'bu-jae-jung',usage:'人不在'},
+     {kr:'착신',cn:'来电',pron:'chak-sin',usage:'接到来电'}
+   ]
+  },
   {day:13,title:'微信消息沟通',emoji:'💬',scene:'在韩国职场，KakaoTalk是主要沟通工具。你需要用韩语文字消息跟同事和客户沟通。',
    quiz:{emoji:'💬📱✅',q:'收到消息后你想说"已确认消息"，用韩语怎么说？',opts:['메시지 확인했습니다','메시지 삭제했습니다','메시지가 없습니다','메시지를 좋아합니다'],ans:0},
    expressions:[
@@ -398,13 +557,28 @@ const COURSE = [
      {kr:'바로 처리하겠습니다',cn:'马上处理',pron:'ba-ro cheo-ri-ha-get-seum-ni-da',usage:'立即响应'},
      {kr:'진행 상황 공유드립니다',cn:'分享进展',pron:'jin-haeng sang-hwang gong-yu-deu-rim-ni-da',usage:'同步进度'},
      {kr:'파일 보내드립니다',cn:'发文件给您',pron:'pa-il bo-nae-deu-rim-ni-da',usage:'发送文件'},
-     {kr:'수신 확인 부탁드립니다',cn:'请确认收到',pron:'su-sin hwak-in bu-tak-deu-rim-ni-da',usage:'请求确认'}
+     {kr:'수신 확인 부탁드립니다',cn:'请确认收到',pron:'su-sin hwak-in bu-tak-deu-rim-ni-da',usage:'请求确认'},
+     {kr:'카톡으로 보내드렸습니다',cn:'已用KakaoTalk发给您',pron:'ka-tok-eu-ro bo-nae-deu-ryeot-seum-ni-da',usage:'说明发送方式'},
+     {kr:'긴급 건이라 카톡으로 먼저 연락드립니다',cn:'因为紧急先发KakaoTalk',pron:'gin-geup geon-i-ra ka-tok-eu-ro meon-jeo yeol-lak-deu-rim-ni-da',usage:'说明紧急性'}
    ],
    dialogue:[
      {role:'ai',text:'[메시지] 프로젝트 파일 보내드렸어요. 확인 부탁드려요~',hint:'确认收到消息'},
      {role:'ai',text:'[메시지] 네, 확인했습니다! 언제까지 처리하면 될까요?',hint:'表示马上处理'},
-     {role:'ai',text:'[메시지] 내일 오전까지면 됩니다. 진행 상황 공유 부탁드려요.',hint:'分享进展，并请对方确认收到'}
-   ]},
+     {role:'ai',text:'[메시지] 내일 오전까지면 됩니다. 진행 상황 공유 부탁드려요.',hint:'分享进展，并请对方确认收到'},
+     {role:'ai',text:'[메시지] 카톡으로 파일 보냈어요~ 확인 부탁드려요! 📎',hint:'确认收到，告知用什么方式收到'},
+     {role:'ai',text:'[메시지] 네, 잘 받았습니다! 처리 후 진행 상황 카톡으로 공유드릴게요. 👍',hint:'分享进展，确认收到'}
+   ],
+   vocabulary:[
+     {kr:'카톡',cn:'KakaoTalk',pron:'ka-tok',usage:'日常沟通'},
+     {kr:'메시지',cn:'消息',pron:'me-si-ji',usage:'文字消息'},
+     {kr:'파일',cn:'文件',pron:'pa-il',usage:'文件传输'},
+     {kr:'첨부',cn:'附件',pron:'cheom-bu',usage:'邮件附件'},
+     {kr:'수신',cn:'接收',pron:'su-sin',usage:'收到确认'},
+     {kr:'공유',cn:'共享',pron:'gong-yu',usage:'信息同步'},
+     {kr:'처리',cn:'处理',pron:'cheo-ri',usage:'事项办理'},
+     {kr:'응답',cn:'回复',pron:'eung-dap',usage:'及时回复'}
+   ]
+  },
   {day:14,title:'邮件表达',emoji:'📧',scene:'你需要给客户发一封正式邮件，确认会议时间和议程。韩语商务邮件有自己的格式和表达！',
    quiz:{emoji:'📧📎✉️',q:'邮件中你想说"请查看附件"，用韩语怎么说？',opts:['첨부파일 확인해 주세요','첨부파일 삭제해 주세요','첨부파일이 없습니다','첨부파일을 좋아합니다'],ans:0},
    expressions:[
@@ -412,13 +586,28 @@ const COURSE = [
      {kr:'첨부파일 확인해 주세요',cn:'请查看附件',pron:'cheom-bu-pa-il hwak-in-hae ju-se-yo',usage:'提醒查看附件'},
      {kr:'회신 부탁드립니다',cn:'请回复',pron:'hoe-sin bu-tak-deu-rim-ni-da',usage:'请求回复'},
      {kr:'CC에 추가해 주세요',cn:'请加CC',pron:'CC-e chu-ga-hae ju-se-yo',usage:'请求抄送'},
-     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'邮件结尾'}
+     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'邮件结尾'},
+     {kr:'수신자를 추가해 주세요',cn:'请添加收件人',pron:'su-sin-ja-reul chu-ga-hae ju-se-yo',usage:'邮件收件'},
+     {kr:'BCC로 넣어주시겠어요?',cn:'能密送吗？',pron:'BCC-ro neo-eo-ju-si-get-seo-yo',usage:'密送请求'}
    ],
    dialogue:[
      {role:'ai',text:'회의 안건 메일 보내주셨나요? 아직 못 받았는데요.',hint:'告知已发送邮件'},
      {role:'ai',text:'네, 받았습니다! 첨부파일도 있네요. 회신은 언제까지 드리면 되나요?',hint:'提醒查看附件，请求回复'},
-     {role:'ai',text:'내일까지 회신 드리겠습니다. 그리고 관련자 CC 추가해 주시면 감사하겠습니다.',hint:'确认加CC，并用"谢谢"结尾'}
-   ]},
+     {role:'ai',text:'내일까지 회신 드리겠습니다. 그리고 관련자 CC 추가해 주시면 감사하겠습니다.',hint:'确认加CC，并用"谢谢"结尾'},
+     {role:'ai',text:'메일 잘 받았습니다! BCC로 관련자 추가해 주시겠어요?',hint:'请求添加收件人或密送'},
+     {role:'ai',text:'네, BCC 추가 완료했습니다. 회신은 내일까지 드리겠습니다. 감사합니다! 📧',hint:'确认完成，用谢谢结尾'}
+   ],
+   vocabulary:[
+     {kr:'메일',cn:'邮件',pron:'me-il',usage:'商务邮件'},
+     {kr:'첨부파일',cn:'附件',pron:'cheom-bu-pa-il',usage:'邮件附件'},
+     {kr:'회신',cn:'回复',pron:'hoe-sin',usage:'邮件回复'},
+     {kr:'수신자',cn:'收件人',pron:'su-sin-ja',usage:'邮件收件'},
+     {kr:'발신',cn:'发信',pron:'bal-sin',usage:'邮件发送'},
+     {kr:'제목',cn:'标题',pron:'je-mok',usage:'邮件主题'},
+     {kr:'참조',cn:'抄送',pron:'cham-jo',usage:'邮件抄送'},
+     {kr:'비밀참조',cn:'密送',pron:'bi-mil-cham-jo',usage:'邮件密送'}
+   ]
+  },
   {day:15,title:'项目跟进',emoji:'🔍',scene:'项目进入中期，需要持续跟进各方进展。发现延迟风险时，如何专业地沟通？',
    quiz:{emoji:'🔍⚠️📊',q:'你想说"有风险"，用韩语怎么说？',opts:['리스크가 있습니다','리스크가 없습니다','리스크가 좋습니다','리스크를 좋아합니다'],ans:0},
    expressions:[
@@ -426,13 +615,28 @@ const COURSE = [
      {kr:'지연 사유를 알려 주세요',cn:'请告知延迟原因',pron:'ji-yeon sa-yu-reul al-lyeo ju-se-yo',usage:'询问延迟原因'},
      {kr:'이번 주 완료 가능합니다',cn:'这周能完成',pron:'i-beon ju wan-ryo ga-neung-ham-ni-da',usage:'承诺完成时间'},
      {kr:'리스크가 있습니다',cn:'有风险',pron:'ri-seu-keu-ga it-seum-ni-da',usage:'预警风险'},
-     {kr:'대안을 준비하겠습니다',cn:'准备替代方案',pron:'dae-an-eul jun-bi-ha-get-seum-ni-da',usage:'提出应对措施'}
+     {kr:'대안을 준비하겠습니다',cn:'准备替代方案',pron:'dae-an-eul jun-bi-ha-get-seum-ni-da',usage:'提出应对措施'},
+     {kr:'마일스톤 확인하겠습니다',cn:'确认里程碑',pron:'ma-il-seu-ton hwak-in-ha-get-seum-ni-da',usage:'进度节点'},
+     {kr:'주간 리포트 공유드립니다',cn:'分享周报',pron:'ju-gan ri-po-teu gong-yu-deu-rim-ni-da',usage:'定期汇报'}
    ],
    dialogue:[
      {role:'ai',text:'프로젝트 중간 체크인데, 혹시 지연되는 부분 있나요?',hint:'主动检查进展'},
      {role:'ai',text:'디자인 쪽에서 지연이 발생했다고 하네요. 사유를 알려드릴까요?',hint:'询问延迟原因，同时指出风险'},
-     {role:'ai',text:'네, 리스크가 있네요. 대안을 준비해 주시겠어요?',hint:'表示准备替代方案'}
-   ]},
+     {role:'ai',text:'네, 리스크가 있네요. 대안을 준비해 주시겠어요?',hint:'表示准备替代方案'},
+     {role:'ai',text:'주간 리포트 확인했습니다. 마일스톤은 오히려 앞당겨질 수도 있어요!',hint:'确认里程碑，准备防延迟措施'},
+     {role:'ai',text:'좋은 소식이네요! 지연 방지책도 마련해 주셔서 감사합니다. 계속 진행해 주세요. 👍',hint:'感谢并继续推进'}
+   ],
+   vocabulary:[
+     {kr:'체크',cn:'检查',pron:'che-keu',usage:'进度检查'},
+     {kr:'지연',cn:'延迟',pron:'ji-yeon',usage:'进度延迟'},
+     {kr:'마일스톤',cn:'里程碑',pron:'ma-il-seu-ton',usage:'项目节点'},
+     {kr:'리스크',cn:'风险',pron:'ri-seu-keu',usage:'风险管理'},
+     {kr:'대안',cn:'替代方案',pron:'dae-an',usage:'备选方案'},
+     {kr:'리포트',cn:'报告',pron:'ri-po-teu',usage:'工作汇报'},
+     {kr:'완료',cn:'完成',pron:'wan-ryo',usage:'任务完成'},
+     {kr:'진척',cn:'进展',pron:'jin-cheok',usage:'项目进度'}
+   ]
+  },
   {day:16,title:'催客户反馈',emoji:'⏰',scene:'方案提交三天了，客户还没反馈，截止日期越来越近。需要礼貌但坚定地催促！',
    quiz:{emoji:'⏰📬😤',q:'你想说"请尽快回复"，用韩语怎么说？',opts:['빠른 회신 부탁드립니다','빠른 회신 필요 없습니다','빠른 회신이 싫습니다','빠르게 가세요'],ans:0},
    expressions:[
@@ -440,13 +644,28 @@ const COURSE = [
      {kr:'마감이 다가오고 있습니다',cn:'截止日期临近',pron:'ma-ga-mi da-ga-o-go it-seum-ni-da',usage:'说明紧迫性'},
      {kr:'확인 가능하신가요?',cn:'能确认吗？',pron:'hwak-in ga-neung-ha-sin-ga-yo',usage:'温和催促'},
      {kr:'빠른 회신 부탁드립니다',cn:'请尽快回复',pron:'ppa-reun hoe-sin bu-tak-deu-rim-ni-da',usage:'强调紧迫'},
-     {kr:'일정 조정이 필요할 수 있습니다',cn:'可能需要调整日程',pron:'il-jeong jo-jeong-i pil-yo-hal su it-seum-ni-da',usage:'暗示后果'}
+     {kr:'일정 조정이 필요할 수 있습니다',cn:'可能需要调整日程',pron:'il-jeong jo-jeong-i pil-yo-hal su it-seum-ni-da',usage:'暗示后果'},
+     {kr:'일정에 영향이 있을 수 있습니다',cn:'可能会影响日程',pron:'il-jeong-e yeong-hyang-i it-seul su it-seum-ni-da',usage:'说明影响'},
+     {kr:'최소한 ___까지는 피드백 부탁드립니다',cn:'至少___前请反馈',pron:'choe-so-han ___-kka-ji-neun pi-deu-baek bu-tak-deu-rim-ni-da',usage:'设定底线'}
    ],
    dialogue:[
      {role:'ai',text:'안녕하세요, 지난번 보내드린 수정안은 확인하셨나요?',hint:'请求反馈'},
      {role:'ai',text:'아, 죄송합니다. 이번 주 내로 피드백 드릴게요.',hint:'提醒截止日期临近，请尽快回复'},
-     {role:'ai',text:'네, 빠른 회신 감사합니다! 혹시 일정 조정이 필요하시면 말씀해 주세요.',hint:'表示可能需要调整日程'}
-   ]},
+     {role:'ai',text:'네, 빠른 회신 감사합니다! 혹시 일정 조정이 필요하시면 말씀해 주세요.',hint:'表示可能需要调整日程'},
+     {role:'ai',text:'빠른 회신 감사합니다! 최소한 이번 주 금요일까지는 피드백 부탁드립니다.',hint:'设定反馈底线时间'},
+     {role:'ai',text:'네, 금요일까지 최종 피드백 드릴게요. 임시 일정도 같이 보내주세요.',hint:'提议临时日程方案'}
+   ],
+   vocabulary:[
+     {kr:'마감',cn:'截止',pron:'ma-gam',usage:'时间管理'},
+     {kr:'촉구',cn:'催促',pron:'chok-gu',usage:'催促反馈'},
+     {kr:'임시',cn:'临时',pron:'im-si',usage:'临时方案'},
+     {kr:'영향',cn:'影响',pron:'yeong-hyang',usage:'影响评估'},
+     {kr:'최소한',cn:'至少',pron:'choe-so-han',usage:'设定底线'},
+     {kr:'회신',cn:'回复',pron:'hoe-sin',usage:'客户反馈'},
+     {kr:'연장',cn:'延长',pron:'yeon-jang',usage:'时间延长'},
+     {kr:'조정',cn:'调整',pron:'jo-jeong',usage:'日程调整'}
+   ]
+  },
   {day:17,title:'预算讨论',emoji:'💰',scene:'客户觉得报价太高，需要讨论预算调整。在预算谈判中保持专业和灵活！',
    quiz:{emoji:'💰📈🤝',q:'你想说"超预算了"，用韩语怎么说？',opts:['예산 초과입니다','예산이 많습니다','예산이 좋습니다','예산이 필요 없습니다'],ans:0},
    expressions:[
@@ -454,13 +673,28 @@ const COURSE = [
      {kr:'비용 절감 방안을 논의합시다',cn:'讨论节省方案',pron:'bi-yong jeol-gam bang-an-eul non-ui-hap-si-da',usage:'寻找节省空间'},
      {kr:'견적서 보내드리겠습니다',cn:'发送报价单',pron:'gyeong-jeok-seo bo-nae-deu-ri-get-seum-ni-da',usage:'提供正式报价'},
      {kr:'예산 초과입니다',cn:'超预算了',pron:'ye-san cho-wa-im-ni-da',usage:'指出超支'},
-     {kr:'조정이 필요합니다',cn:'需要调整',pron:'jo-jeong-i pil-yo-ham-ni-da',usage:'建议调整'}
+     {kr:'조정이 필요합니다',cn:'需要调整',pron:'jo-jeong-i pil-yo-ham-ni-da',usage:'建议调整'},
+     {kr:'ROI 예상치를 공유드리겠습니다',cn:'分享预期ROI',pron:'ROI ye-sang-chi-reul gong-yu-deu-ri-get-seum-ni-da',usage:'数据支撑'},
+     {kr:'성과 기반 계약도 가능합니다',cn:'也可以按效果签约',pron:'seong-gwa gi-ban gye-yak-do ga-neung-ham-ni-da',usage:'替代方案'}
    ],
    dialogue:[
      {role:'ai',text:'이번 캠페인 견적서 받았는데, 예산보다 좀 높네요.',hint:'确认预算情况'},
      {role:'ai',text:'네, 예산 초과인 건 인지하고 있습니다. 어느 정도 조정이 필요하신가요?',hint:'指出超支，建议讨论节省方案'},
-     {role:'ai',text:'20% 정도 절감이 필요한데, 가능할까요?',hint:'表示可以调整，发送修改后的报价'}
-   ]},
+     {role:'ai',text:'20% 정도 절감이 필요한데, 가능할까요?',hint:'表示可以调整，发送修改后的报价'},
+     {role:'ai',text:'20% 절감이면 단가 조정이 필요할 것 같은데, 성과 기반 계약은 어떠세요?',hint:'提出替代方案'},
+     {role:'ai',text:'흥미로운 제안이네요! 성과 기반으로 진행해 보겠습니다. 견적서 다시 보내주세요. 📊',hint:'发送修改后的报价'}
+   ],
+   vocabulary:[
+     {kr:'예산',cn:'预算',pron:'ye-san',usage:'费用控制'},
+     {kr:'견적서',cn:'报价单',pron:'gyeong-jeok-seo',usage:'正式报价'},
+     {kr:'초과',cn:'超出',pron:'cho-wa',usage:'预算超支'},
+     {kr:'절감',cn:'节省',pron:'jeol-gam',usage:'成本优化'},
+     {kr:'단가',cn:'单价',pron:'dan-ga',usage:'定价'},
+     {kr:'계약',cn:'合同',pron:'gye-yak',usage:'签约合作'},
+     {kr:'비용',cn:'费用',pron:'bi-yong',usage:'成本管理'},
+     {kr:'성과',cn:'成果',pron:'seong-gwa',usage:'绩效'}
+   ]
+  },
   {day:18,title:'时间管理',emoji:'⏳',scene:'手头三个项目同时进行，日程排得满满当当。如何用韩语管理时间和优先级？',
    quiz:{emoji:'⏳📋🔥',q:'你想说"日程很紧"，用韩语怎么说？',opts:['일정이 빡빡합니다','일정이 여유롭습니다','일정이 좋습니다','일정이 없습니다'],ans:0},
    expressions:[
@@ -468,13 +702,28 @@ const COURSE = [
      {kr:'우선순위를 정하겠습니다',cn:'确定优先级',pron:'u-seon-sun-wi-reul jeong-ha-get-seum-ni-da',usage:'有序安排'},
      {kr:'시간이 필요합니다',cn:'需要时间',pron:'si-gan-i pil-yo-ham-ni-da',usage:'请求时间'},
      {kr:'데드라인을 맞추겠습니다',cn:'赶上截止日',pron:'de-deu-ra-in-eul ma-chu-get-seum-ni-da',usage:'承诺按时完成'},
-     {kr:'지연 가능한가요?',cn:'可以延期吗？',pron:'ji-yeon ga-neung-han-ga-yo',usage:'谨慎询问延期'}
+     {kr:'지연 가능한가요?',cn:'可以延期吗？',pron:'ji-yeon ga-neung-han-ga-yo',usage:'谨慎询问延期'},
+     {kr:'멀티태스킹으로 진행하겠습니다',cn:'会多任务并行',pron:'meol-ti-tae-si-king-eu-ro jin-haeng-ha-get-seum-ni-da',usage:'说明方式'},
+     {kr:'리소스를 추가 투입하겠습니다',cn:'会投入额外资源',pron:'ri-so-seu-reul chu-ga tu-ip-ha-get-seum-ni-da',usage:'增加投入'}
    ],
    dialogue:[
      {role:'ai',text:'이번 주에 세 프로젝트 마감이 있는데, 일정 괜찮으세요?',hint:'承认日程很紧'},
      {role:'ai',text:'일정이 빡빡하시군요. 우선순위를 정해드릴까요?',hint:'表示会确定优先级'},
-     {role:'ai',text:'네, 그럼 먼저 A프로젝트부터 진행하죠. 데드라인은 꼭 맞춰주세요!',hint:'承诺赶上截止日，必要时请求更多时间'}
-   ]},
+     {role:'ai',text:'네, 그럼 먼저 A프로젝트부터 진행하죠. 데드라인은 꼭 맞춰주세요!',hint:'承诺赶上截止日，必要时请求更多时间'},
+     {role:'ai',text:'A프로젝트부터 진행하시죠. 나머지는 리소스 추가 투입이 필요할 것 같아요.',hint:'说明会投入额外资源'},
+     {role:'ai',text:'네, 리소스 추가 투입 감사합니다! 멀티태스킹으로 진행하겠습니다. 💪',hint:'表示会多任务并行推进'}
+   ],
+   vocabulary:[
+     {kr:'일정',cn:'日程',pron:'il-jeong',usage:'时间管理'},
+     {kr:'빡빡하다',cn:'紧凑',pron:'ppak-ppak-ha-da',usage:'日程紧张'},
+     {kr:'우선순위',cn:'优先级',pron:'u-seon-sun-wi',usage:'任务排序'},
+     {kr:'데드라인',cn:'截止日',pron:'de-deu-ra-in',usage:'时间节点'},
+     {kr:'멀티태스킹',cn:'多任务',pron:'meol-ti-tae-si-king',usage:'并行处理'},
+     {kr:'리소스',cn:'资源',pron:'ri-so-seu',usage:'人力物力'},
+     {kr:'조율',cn:'协调',pron:'jo-yul',usage:'日程协调'},
+     {kr:'지연',cn:'延迟',pron:'ji-yeon',usage:'进度延迟'}
+   ]
+  },
   {day:19,title:'跨部门协作',emoji:'🔗',scene:'创意团队和媒介团队需要协同工作，作为AE你要协调各方。跨部门沟通需要更圆融！',
    quiz:{emoji:'🔗🤝👥',q:'你想说"请协助"，用韩语怎么说？',opts:['협조 부탁드립니다','협조 필요 없습니다','협조가 싫습니다','협조하고 싶습니다'],ans:0},
    expressions:[
@@ -482,13 +731,28 @@ const COURSE = [
      {kr:'크리에이티브 팀과 논의해야 합니다',cn:'需要和创意团队讨论',pron:'keu-ri-e-i-ti-beu tim-gwa non-ui-hae-ya ham-ni-da',usage:'说明需跨团队沟通'},
      {kr:'자료 공유해 주세요',cn:'请分享资料',pron:'ja-ryo gong-yu-hae ju-se-yo',usage:'请求共享'},
      {kr:'회의 잡아드릴까요?',cn:'要约会议吗？',pron:'hoe-ui ja-ba-deu-ril-kka-yo',usage:'主动安排沟通'},
-     {kr:'함께 진행하겠습니다',cn:'一起推进',pron:'ham-gge jin-haeng-ha-get-seum-ni-da',usage:'承诺协同'}
+     {kr:'함께 진행하겠습니다',cn:'一起推进',pron:'ham-gge jin-haeng-ha-get-seum-ni-da',usage:'承诺协同'},
+     {kr:'미디어팀과 워크샵을 진행합시다',cn:'和媒介团队做workshop',pron:'mi-di-eo-tim-gwa wo-keu-syap-eul jin-haeng-hap-si-da',usage:'提议协作'},
+     {kr:'정기 싱크업 미팅을 잡겠습니다',cn:'安排定期同步会',pron:'jeong-gi sing-keu-eop mi-ting-eul jap-get-seum-ni-da',usage:'定期对齐'}
    ],
    dialogue:[
      {role:'ai',text:'크리에이티브 팀에서 소스 자료가 필요하다고 하네요.',hint:'请求分享资料'},
      {role:'ai',text:'자료 공유해 드릴게요. 크리에이티브 팀과 직접 논의해야 할 부분도 있어요.',hint:'表示需要和创意团队讨论，询问是否约会议'},
-     {role:'ai',text:'네, 회의 잡아주시면 감사하겠습니다. 협조 부탁드려요!',hint:'表示一起推进'}
-   ]},
+     {role:'ai',text:'네, 회의 잡아주시면 감사하겠습니다. 협조 부탁드려요!',hint:'表示一起推进'},
+     {role:'ai',text:'정기 싱크업 미팅 잡아주셔서 감사합니다! 공유 드라이브에 자료 올려놓을게요.',hint:'上传文件到共享盘'},
+     {role:'ai',text:'자료 잘 받았습니다! 미디어팀과 워크샵도 진행하면 좋겠네요. 협조 부탁드립니다! 🤝',hint:'提议协作，表示一起推进'}
+   ],
+   vocabulary:[
+     {kr:'크리에이티브',cn:'创意',pron:'keu-ri-e-i-ti-beu',usage:'创意团队'},
+     {kr:'미디어',cn:'媒介',pron:'mi-di-eo',usage:'媒介团队'},
+     {kr:'협조',cn:'协助',pron:'hyeop-jo',usage:'跨部门合作'},
+     {kr:'공유',cn:'共享',pron:'gong-yu',usage:'资料共享'},
+     {kr:'워크샵',cn:'工作坊',pron:'wo-keu-syap',usage:'协作形式'},
+     {kr:'싱크업',cn:'同步',pron:'sing-keu-eop',usage:'信息对齐'},
+     {kr:'드라이브',cn:'网盘',pron:'deu-ra-i-beu',usage:'文件管理'},
+     {kr:'진행',cn:'推进',pron:'jin-haeng',usage:'项目推进'}
+   ]
+  },
   {day:20,title:'项目复盘',emoji:'📊',scene:'项目终于完成了！团队围坐一起做复盘，总结经验教训，为下一个项目积累方法论。',
    quiz:{emoji:'📊✅💡',q:'复盘时你想说"辛苦了"，用韩语怎么说？',opts:['수고하셨습니다','수고하지 마세요','수고가 없습니다','수고를 좋아합니다'],ans:0},
    expressions:[
@@ -496,13 +760,28 @@ const COURSE = [
      {kr:'성과를 정리하겠습니다',cn:'整理成果',pron:'seong-gwa-reul jeong-ri-ha-get-seum-ni-da',usage:'总结成绩'},
      {kr:'개선점을 논의합시다',cn:'讨论改进点',pron:'gae-seon-jeom-eul non-ui-hap-si-da',usage:'提出改进'},
      {kr:'다음에 반영하겠습니다',cn:'下次会反映',pron:'da-eum-e ban-yeong-ha-get-seum-ni-da',usage:'承诺改进'},
-     {kr:'수고하셨습니다',cn:'辛苦了',pron:'su-go-ha-syeot-seum-ni-da',usage:'肯定团队努力'}
+     {kr:'수고하셨습니다',cn:'辛苦了',pron:'su-go-ha-syeot-seum-ni-da',usage:'肯定团队努力'},
+     {kr:'KPI 달성 여부를 확인하겠습니다',cn:'确认KPI达成情况',pron:'KPI dal-seong yeo-bu-reul hwak-in-ha-get-seum-ni-da',usage:'量化复盘'},
+     {kr:'다음 프로젝트에 적용하겠습니다',cn:'应用到下个项目',pron:'da-eum peu-ro-jek-teu-e jeok-yong-ha-get-seum-ni-da',usage:'应用经验'}
    ],
    dialogue:[
      {role:'ai',text:'프로젝트가 잘 마무리되었네요! 회고 시작할까요?',hint:'开始复盘，整理成果'},
      {role:'ai',text:'좋은 성과였어요. 하지만 개선점도 있을 거예요.',hint:'讨论改进点'},
-     {role:'ai',text:'맞아요, 다음 프로젝트에서 반영하죠. 모두 수고하셨습니다! 🎉',hint:'承诺下次改进，对团队说辛苦了'}
-   ]},
+     {role:'ai',text:'맞아요, 다음 프로젝트에서 반영하죠. 모두 수고하셨습니다! 🎉',hint:'承诺下次改进，对团队说辛苦了'},
+     {role:'ai',text:'KPI 달성 여부 확인했습니다! 베스트 프랙티스도 정리해 볼까요?',hint:'整理最佳实践'},
+     {role:'ai',text:'좋아요! 다음 프로젝트에 꼭 적용하겠습니다. 모두 수고 많으셨습니다! 🎉',hint:'应用到下个项目，对团队说辛苦了'}
+   ],
+   vocabulary:[
+     {kr:'회고',cn:'复盘',pron:'hoe-go',usage:'项目复盘'},
+     {kr:'성과',cn:'成果',pron:'seong-gwa',usage:'项目成绩'},
+     {kr:'개선점',cn:'改进点',pron:'gae-seon-jeom',usage:'问题反思'},
+     {kr:'KPI',cn:'关键指标',pron:'KPI',usage:'量化评估'},
+     {kr:'반영',cn:'应用',pron:'ban-yeong',usage:'经验运用'},
+     {kr:'수고',cn:'辛苦',pron:'su-go',usage:'感谢团队'},
+     {kr:'프랙티스',cn:'实践',pron:'peu-raek-ti-seu',usage:'最佳实践'},
+     {kr:'교훈',cn:'教训',pron:'gyo-hun',usage:'经验教训'}
+   ]
+  },
   {day:21,title:'韩国出差',emoji:'✈️',scene:'公司安排你去首尔出差，面见韩国总部客户。出发前需要确认各种出差细节！',
    quiz:{emoji:'✈️🇰🇷💼',q:'你想说"已确认出差日程"，用韩语怎么说？',opts:['출장 일정 확인했습니다','출장을 좋아합니다','출장이 싫습니다','출장을 안 갑니다'],ans:0},
    expressions:[
@@ -510,13 +789,28 @@ const COURSE = [
      {kr:'비자 필요한가요?',cn:'需要签证吗？',pron:'bi-ja pil-yo-han-ga-yo',usage:'询问签证'},
      {kr:'숙소 예약해 드릴까요?',cn:'要预订住宿吗？',pron:'suk-so ye-yak-hae deu-ril-kka-yo',usage:'主动安排'},
      {kr:'일정표 보내드리겠습니다',cn:'发送行程表',pron:'il-jeong-pyo bo-nae-deu-ri-get-seum-ni-da',usage:'提供详细行程'},
-     {kr:'안전하게 다녀오세요',cn:'一路平安',pron:'an-jeon-ha-ge da-nyeo-o-se-yo',usage:'出差祝福'}
+     {kr:'안전하게 다녀오세요',cn:'一路平安',pron:'an-jeon-ha-ge da-nyeo-o-se-yo',usage:'出差祝福'},
+     {kr:'출장 경비 청구 어떻게 하나요?',cn:'出差费用怎么报销？',pron:'chul-jang gyeong-bi cheong-gu eo-tteo-ke ha-na-yo',usage:'费用报销'},
+     {kr:'픽업 부탁드려도 될까요?',cn:'能安排接机吗？',pron:'pik-eop bu-tak-deu-ryeo-do doel-kka-yo',usage:'请求接机'}
    ],
    dialogue:[
      {role:'ai',text:'다음 주 출장 일정 확정되었는데, 확인하셨나요?',hint:'确认出差日程'},
      {role:'ai',text:'네, 확인했습니다. 숙소와 비자는 어떻게 되나요?',hint:'询问签证或住宿安排'},
-     {role:'ai',text:'숙소 예약해 드릴게요. 일정표도 보내드릴 테니 확인해 주세요. 안전하게 다녀오세요!',hint:'表示会发送行程表'}
-   ]},
+     {role:'ai',text:'숙소 예약해 드릴게요. 일정표도 보내드릴 테니 확인해 주세요. 안전하게 다녀오세요!',hint:'表示会发送行程表'},
+     {role:'ai',text:'일정표 받았습니다! 현지 연락처랑 픽업도 부탁드려도 될까요?',hint:'请求当地联系方式和接机'},
+     {role:'ai',text:'네, 픽업安排해 드릴게요. 현지 연락처도 보내드릴 테니 안전하게 다녀오세요! ✈️',hint:'感谢，确认日程'}
+   ],
+   vocabulary:[
+     {kr:'출장',cn:'出差',pron:'chul-jang',usage:'商务出差'},
+     {kr:'비자',cn:'签证',pron:'bi-ja',usage:'出行准备'},
+     {kr:'숙소',cn:'住宿',pron:'suk-so',usage:'酒店预订'},
+     {kr:'일정표',cn:'行程表',pron:'il-jeong-pyo',usage:'日程安排'},
+     {kr:'경비',cn:'经费',pron:'gyeong-bi',usage:'出差费用'},
+     {kr:'픽업',cn:'接机',pron:'pik-eop',usage:'机场接送'},
+     {kr:'현지',cn:'当地',pron:'hyeon-ji',usage:'目的地'},
+     {kr:'청구',cn:'报销',pron:'cheong-gu',usage:'费用报销'}
+   ]
+  },
   {day:22,title:'酒店入住',emoji:'🏨',scene:'到达首尔！拖着行李走进酒店，用韩语办理入住。实战场景来了！',
    quiz:{emoji:'🏨🔑🧳',q:'你想说"办理入住"，用韩语怎么说？',opts:['체크인 부탁합니다','체크아웃 부탁합니다','체크인 필요 없습니다','체크인이 싫습니다'],ans:0},
    expressions:[
@@ -524,13 +818,28 @@ const COURSE = [
      {kr:'___박 예약했습니다',cn:'预订了___晚',pron:'___-bak ye-yak-hat-seum-ni-da',usage:'说明预订'},
      {kr:'조식 포함인가요?',cn:'含早餐吗？',pron:'jo-sik po-ham-in-ga-yo',usage:'确认早餐'},
      {kr:'와이파이 비밀번호 알려 주세요',cn:'请告知WiFi密码',pron:'wa-i-pa-i bi-mil-beon-ho al-lyeo ju-se-yo',usage:'请求WiFi'},
-     {kr:'체크아웃은 몇 시인가요?',cn:'几点退房？',pron:'che-keu-a-u-seun myeot si-in-ga-yo',usage:'确认退房时间'}
+     {kr:'체크아웃은 몇 시인가요?',cn:'几点退房？',pron:'che-keu-a-u-seun myeot si-in-ga-yo',usage:'确认退房时间'},
+     {kr:'짐을 맡아 주실 수 있나요?',cn:'能帮忙寄存行李吗？',pron:'jim-eul ma-ta ju-sil su it-na-yo',usage:'寄存行李'},
+     {kr:'레이트 체크아웃 가능한가요?',cn:'可以延迟退房吗？',pron:'re-i-teu che-keu-a-u-tu ga-neung-han-ga-yo',usage:'延迟退房'}
    ],
    dialogue:[
      {role:'ai',text:'안녕하세요, 호텔 프론트입니다. 어떻게 도와드릴까요?',hint:'办理入住'},
      {role:'ai',text:'네, 예약 확인되었습니다. 2박이시네요. 조식 포함입니다.',hint:'确认预订几晚，询问是否含早餐'},
-     {role:'ai',text:'네, 조식 포함입니다. 와이파이 비밀번호는 로비에 있어요. 체크아웃은 오전 11시까지입니다.',hint:'询问WiFi密码和退房时间'}
-   ]},
+     {role:'ai',text:'네, 조식 포함입니다. 와이파이 비밀번호는 로비에 있어요. 체크아웃은 오전 11시까지입니다.',hint:'询问WiFi密码和退房时间'},
+     {role:'ai',text:'체크인 완료되었습니다. 짐은 프론트에 맡아 드릴 수 있어요. 레이트 체크아웃 필요하시면 말씀하세요.',hint:'询问延迟退房或房间升级'},
+     {role:'ai',text:'레이트 체크아웃은 오후 1시까지 가능합니다. 편하게 지내세요! 😊',hint:'感谢并确认'}
+   ],
+   vocabulary:[
+     {kr:'체크인',cn:'入住',pron:'che-keu-in',usage:'酒店前台'},
+     {kr:'체크아웃',cn:'退房',pron:'che-keu-a-u-tu',usage:'离开酒店'},
+     {kr:'객실',cn:'客房',pron:'gaek-sil',usage:'房间类型'},
+     {kr:'프론트',cn:'前台',pron:'peu-ron-teu',usage:'酒店服务'},
+     {kr:'조식',cn:'早餐',pron:'jo-sik',usage:'酒店餐饮'},
+     {kr:'와이파이',cn:'WiFi',pron:'wa-i-pa-i',usage:'网络连接'},
+     {kr:'짐',cn:'行李',pron:'jim',usage:'行李寄存'},
+     {kr:'예약',cn:'预订',pron:'ye-yak',usage:'酒店预订'}
+   ]
+  },
   {day:23,title:'机场沟通',emoji:'🛫',scene:'飞行顺利抵达仁川机场！办理入境、找行李、打车去酒店，一路都需要韩语。',
    quiz:{emoji:'🛫🧳🚕',q:'你想问"在哪坐出租车？"，用韩语怎么说？',opts:['택시 타는 곳이 어디인가요?','택시가 싫습니다','택시가 없습니다','택시를 좋아합니다'],ans:0},
    expressions:[
@@ -538,13 +847,28 @@ const COURSE = [
      {kr:'수하물은 어디서 찾나요?',cn:'在哪取行李？',pron:'su-ha-mul-eun eo-di-seo chat-na-yo',usage:'找行李'},
      {kr:'출구가 어디인가요?',cn:'出口在哪？',pron:'chul-gu-ga eo-di-in-ga-yo',usage:'找出口'},
      {kr:'택시 타는 곳이 어디인가요?',cn:'在哪坐出租车？',pron:'taek-si ta-neun go-si eo-di-in-ga-yo',usage:'找出租车'},
-     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'万能礼貌'}
+     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'万能礼貌'},
+     {kr:'환승은 어디서 하나요?',cn:'在哪转机？',pron:'hwan-seung-eun eo-di-seo ha-na-yo',usage:'转机指引'},
+     {kr:'교통카드는 어디서 살 수 있나요?',cn:'在哪买交通卡？',pron:'gyo-tong-ka-deu-neun eo-di-seo sal su it-na-yo',usage:'交通出行'}
    ],
    dialogue:[
      {role:'ai',text:'여권과 탑승권 보여 주세요.',hint:'出示登机牌'},
      {role:'ai',text:'감사합니다. 수하물은 저쪽에서 찾으시면 됩니다.',hint:'询问在哪取行李'},
-     {role:'ai',text:'출구는 오른쪽이에요. 택시 타시려면 1층으로 가시면 됩니다.',hint:'询问出口和出租车位置'}
-   ]},
+     {role:'ai',text:'출구는 오른쪽이에요. 택시 타시려면 1층으로 가시면 됩니다.',hint:'询问出口和出租车位置'},
+     {role:'ai',text:'출구에서 오른쪽으로 가시면 택시 승강장 있습니다. 교통카드는 편의점에서 구매 가능하세요.',hint:'询问在哪买交通卡'},
+     {role:'ai',text:'편의점은 1층 출구 옆에 있어요. 서울 가시려면 공항버스도 편해요! 😊',hint:'感谢对方，询问其他交通方式'}
+   ],
+   vocabulary:[
+     {kr:'여권',cn:'护照',pron:'yeo-gwon',usage:'出入境'},
+     {kr:'탑승권',cn:'登机牌',pron:'tap-seung-gwon',usage:'登机'},
+     {kr:'수하물',cn:'行李',pron:'su-ha-mul',usage:'取行李'},
+     {kr:'출구',cn:'出口',pron:'chul-gu',usage:'机场指引'},
+     {kr:'택시',cn:'出租车',pron:'taek-si',usage:'地面交通'},
+     {kr:'환승',cn:'转机',pron:'hwan-seung',usage:'航班中转'},
+     {kr:'면세점',cn:'免税店',pron:'myeon-se-jeom',usage:'机场购物'},
+     {kr:'교통카드',cn:'交通卡',pron:'gyo-tong-ka-deu',usage:'市内交通'}
+   ]
+  },
   {day:24,title:'客户接待',emoji:'🤗',scene:'韩国客户来公司拜访，你负责接待。从欢迎到引导，每个细节都展现你的职业素养！',
    quiz:{emoji:'🤗☕🏢',q:'接待时你想说"欢迎"，用韩语怎么说？',opts:['환영합니다','환영하지 않습니다','환영이 필요 없습니다','환영을 좋아합니다'],ans:0},
    expressions:[
@@ -552,13 +876,28 @@ const COURSE = [
      {kr:'오시는 길은 괜찮으셨나요?',cn:'来时路还顺利吗？',pron:'o-si-neun gi-reun gwaen-cha-neu-syeot-na-yo',usage:'关心对方'},
      {kr:'커피 드실래요?',cn:'要喝咖啡吗？',pron:'keo-pi deu-sil-lae-yo',usage:'提供饮品'},
      {kr:'회의실로 안내하겠습니다',cn:'带您去会议室',pron:'hoe-ui-sil-lo an-nae-ha-get-seum-ni-da',usage:'引导方向'},
-     {kr:'편하게 말씀해 주세요',cn:'请随意说',pron:'pyeon-ha-ge mal-sseum-hae ju-se-yo',usage:'营造轻松氛围'}
+     {kr:'편하게 말씀해 주세요',cn:'请随意说',pron:'pyeon-ha-ge mal-sseum-hae ju-se-yo',usage:'营造轻松氛围'},
+     {kr:'차가 오시길래 데려다 드릴게요',cn:'车来了，我送您',pron:'cha-ga o-si-gil-lae de-ryeo-da deu-ril-ge-yo',usage:'贴心服务'},
+     {kr:'방문증 발급해 드리겠습니다',cn:'给您办访客证',pron:'bang-mun-jeung bal-geup-hae deu-ri-get-seum-ni-da',usage:'办理访客证'}
    ],
    dialogue:[
      {role:'ai',text:'안녕하세요! 처음 뵙겠습니다.',hint:'欢迎对方'},
      {role:'ai',text:'네, 감사합니다. 오시는 길은 괜찮으셨나요? 커피 드실래요?',hint:'关心对方路途，提供饮品'},
-     {role:'ai',text:'네, 감사합니다! 편하게 말씀해 주세요.',hint:'引导去会议室，请对方放松'}
-   ]},
+     {role:'ai',text:'네, 감사합니다! 편하게 말씀해 주세요.',hint:'引导去会议室，请对方放松'},
+     {role:'ai',text:'방문증 받으시고요, 회의실로 안내하겠습니다. 주차는 하셨어요?',hint:'询问停车，或办访客证'},
+     {role:'ai',text:'주차장은 지하 1층입니다. 회의실은 이쪽이에요. 편하게 말씀해 주세요! ☕',hint:'引导去会议室，请对方放松'}
+   ],
+   vocabulary:[
+     {kr:'환영',cn:'欢迎',pron:'hwan-yeong',usage:'正式欢迎'},
+     {kr:'방문증',cn:'访客证',pron:'bang-mun-jeung',usage:'访客管理'},
+     {kr:'안내',cn:'引导',pron:'an-nae',usage:'引导方向'},
+     {kr:'주차장',cn:'停车场',pron:'ju-cha-jang',usage:'停车指引'},
+     {kr:'접대',cn:'接待',pron:'jeop-dae',usage:'客户接待'},
+     {kr:'음료',cn:'饮料',pron:'eum-ryo',usage:'提供饮品'},
+     {kr:'로비',cn:'大堂',pron:'ro-bi',usage:'酒店大堂'},
+     {kr:'편하게',cn:'随意',pron:'pyeon-ha-ge',usage:'营造轻松'}
+   ]
+  },
   {day:25,title:'提案演练',emoji:'🎯',scene:'正式提案前，团队内部先进行一次排练。你要练习用韩语做提案的关键表达！',
    quiz:{emoji:'🎯🎤📊',q:'你想说"开始演示"，用韩语怎么说？',opts:['프레젠테이션 시작하겠습니다','프레젠테이션 끝났습니다','프레젠테이션이 어렵습니다','프레젠테이션을 좋아합니다'],ans:0},
    expressions:[
@@ -566,13 +905,28 @@ const COURSE = [
      {kr:'핵심 포인트입니다',cn:'这是关键点',pron:'haek-sim po-in-teu-im-ni-da',usage:'强调重点'},
      {kr:'다음 슬라이드입니다',cn:'下一页',pron:'da-eum seul-la-i-deu-im-ni-da',usage:'翻页提示'},
      {kr:'질문 있으시면 말씀해 주세요',cn:'有问题请说',pron:'jil-mun it-seu-si-myeon mal-sseum-hae ju-se-yo',usage:'邀请提问'},
-     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'结束感谢'}
+     {kr:'감사합니다',cn:'谢谢',pron:'gam-sa-ham-ni-da',usage:'结束感谢'},
+     {kr:'이번 캠페인의 타겟은 ___입니다',cn:'这次活动的目标是___',pron:'i-beon kaem-pe-in-ui ta-get-eun ___-im-ni-da',usage:'说明目标'},
+     {kr:'소감 말씀해 주시겠어요?',cn:'能说说感想吗？',pron:'so-gam mal-sseum-hae ju-si-get-seo-yo',usage:'邀请评价'}
    ],
    dialogue:[
      {role:'ai',text:'자, 리허설 시작하죠. 발표 첫인사부터 해보세요!',hint:'开始你的演示'},
      {role:'ai',text:'좋은 시작이에요! 핵심 포인트 강조해 보세요.',hint:'强调关键点'},
-     {role:'ai',text:'훌륭해요! 마지막으로 질문 시간 안내하고 마무리해 보세요.',hint:'邀请提问，用谢谢结束'}
-   ]},
+     {role:'ai',text:'훌륭해요! 마지막으로 질문 시간 안내하고 마무리해 보세요.',hint:'邀请提问，用谢谢结束'},
+     {role:'ai',text:'좋은 프레젠테이션이에요! 소감 말씀해 주시겠어요?',hint:'说说感想，或邀请提问'},
+     {role:'ai',text:'설득력이 좋아요! 본 미팅에서도 이대로 가시면 될 것 같아요. 화이팅! 🎯',hint:'感谢鼓励，表示会加油'}
+   ],
+   vocabulary:[
+     {kr:'프레젠테이션',cn:'演示',pron:'peu-re-jen-te-i-syeon',usage:'提案展示'},
+     {kr:'핵심',cn:'核心',pron:'haek-sim',usage:'关键要点'},
+     {kr:'슬라이드',cn:'幻灯片',pron:'seul-la-i-deu',usage:'演示材料'},
+     {kr:'리허설',cn:'排练',pron:'ri-heo-seol',usage:'正式前练习'},
+     {kr:'설득',cn:'说服',pron:'seol-dok',usage:'提案技巧'},
+     {kr:'피칭',cn:'提案',pron:'pi-ching',usage:'广告提案'},
+     {kr:'소감',cn:'感想',pron:'so-gam',usage:'反馈评价'},
+     {kr:'타겟',cn:'目标',pron:'ta-get',usage:'受众定位'}
+   ]
+  },
   {day:26,title:'危机处理',emoji:'🚨',scene:'客户产品出了公关危机，需要紧急应对！在压力下保持冷静，用韩语进行危机沟通。',
    quiz:{emoji:'🚨⚠️🛡️',q:'你想说"有紧急事项"，用韩语怎么说？',opts:['긴급 사항이 있습니다','긴급 사항이 없습니다','긴급하지 않습니다','긴급을 좋아합니다'],ans:0},
    expressions:[
@@ -580,13 +934,28 @@ const COURSE = [
      {kr:'빠른 대응이 필요합니다',cn:'需要快速响应',pron:'ppa-reun dae-eung-i pil-yo-ham-ni-da',usage:'强调紧迫'},
      {kr:'해결 방안을 제시하겠습니다',cn:'提出解决方案',pron:'hae-gyeol bang-an-eul je-si-ha-get-seum-ni-da',usage:'主动应对'},
      {kr:'상황을 모니터링하겠습니다',cn:'会监控情况',pron:'sang-hwang-eul mo-ni-teo-ing-ha-get-seum-ni-da',usage:'持续关注'},
-     {kr:'정기적으로 업데이트드리겠습니다',cn:'定期更新',pron:'jeong-gi-jeok-eu-ro eop-de-i-teu-deu-ri-get-seum-ni-da',usage:'承诺信息同步'}
+     {kr:'정기적으로 업데이트드리겠습니다',cn:'定期更新',pron:'jeong-gi-jeok-eu-ro eop-de-i-teu-deu-ri-get-seum-ni-da',usage:'承诺信息同步'},
+     {kr:'공식 입장문을 준비하겠습니다',cn:'准备官方声明',pron:'gong-sik ip-jang-mun-eul jun-bi-ha-get-seum-ni-da',usage:'危机公关'},
+     {kr:'SNS 모니터링 강화하겠습니다',cn:'加强社交媒体监控',pron:'SNS mo-ni-teo-ing gang-hwa-ha-get-seum-ni-da',usage:'舆情监控'}
    ],
    dialogue:[
      {role:'ai',text:'긴급 뉴스가 떴어요! 클라이언트 제품 관련 이슈인데 어떡하죠?',hint:'通报紧急事项，强调需要快速响应'},
      {role:'ai',text:'빠른 대응이 필요하겠네요. 어떤 방안이 있을까요?',hint:'提出解决方案'},
-     {role:'ai',text:'좋은 방안이에요. 상황 계속 모니터링해 주시고 정기적으로 업데이트해 주세요.',hint:'表示会监控情况并定期更新'}
-   ]},
+     {role:'ai',text:'좋은 방안이에요. 상황 계속 모니터링해 주시고 정기적으로 업데이트해 주세요.',hint:'表示会监控情况并定期更新'},
+     {role:'ai',text:'공식 입장문 준비 중이세요? SNS 반응도 계속 체크해 주세요.',hint:'加强社媒监控，准备官方声明'},
+     {role:'ai',text:'네, 대응 매뉴얼에 따라 진행하고 있습니다. 정기적으로 업데이트드리겠습니다! 🛡️',hint:'表示按手册执行，定期更新'}
+   ],
+   vocabulary:[
+     {kr:'긴급',cn:'紧急',pron:'gin-geup',usage:'紧急事项'},
+     {kr:'대응',cn:'应对',pron:'dae-eung',usage:'危机应对'},
+     {kr:'위기',cn:'危机',pron:'wi-gi',usage:'公关危机'},
+     {kr:'모니터링',cn:'监控',pron:'mo-ni-teo-ing',usage:'舆情监控'},
+     {kr:'입장문',cn:'声明',pron:'ip-jang-mun',usage:'官方声明'},
+     {kr:'매뉴얼',cn:'手册',pron:'mae-nyu-eol',usage:'应对规范'},
+     {kr:'업데이트',cn:'更新',pron:'eop-de-i-teu',usage:'信息同步'},
+     {kr:'해결',cn:'解决',pron:'hae-gyeol',usage:'问题解决'}
+   ]
+  },
   {day:27,title:'团队聚餐',emoji:'🍻',scene:'项目成功上线！团队决定去聚餐庆祝。韩国的聚餐文化很有特色，轻松融入吧！',
    quiz:{emoji:'🍻🥂🎉',q:'聚餐时你想说"干杯！"，用韩语怎么说？',opts:['건배!','안녕!','감사!','미안!'],ans:0},
    expressions:[
@@ -594,13 +963,28 @@ const COURSE = [
      {kr:'맛있는 거 먹으러 가요',cn:'去吃好吃的',pron:'ma-sit-neun geo meog-eu-reo ga-yo',usage:'轻松邀请'},
      {kr:'건배!',cn:'干杯！',pron:'geon-bae',usage:'举杯祝酒'},
      {kr:'수고 많으셨습니다',cn:'辛苦了',pron:'su-go man-eu-syeot-seum-ni-da',usage:'肯定付出'},
-     {kr:'다음에 또 모여요',cn:'下次再聚',pron:'da-eum-e tto mo-yeo-yo',usage:'约定再聚'}
+     {kr:'다음에 또 모여요',cn:'下次再聚',pron:'da-eum-e tto mo-yeo-yo',usage:'约定再聚'},
+     {kr:'오늘은 1차만 하고 2차는 다음에!',cn:'今天只喝第一轮，下次再续！',pron:'o-neul-eun il-cha-man ha-go i-cha-neun da-eum-e',usage:'控制节奏'},
+     {kr:'다들 고생 많으셨습니다',cn:'大家都辛苦了',pron:'da-deul go-saeng man-eu-syeot-seum-ni-da',usage:'感谢团队'}
    ],
    dialogue:[
      {role:'ai',text:'프로젝트 성공했으니 오늘 회식 어때요? 🎉',hint:'表示赞同，提议去吃好吃的'},
      {role:'ai',text:'좋아요! 자, 건배~! 🍻 다들 수고 많으셨습니다!',hint:'干杯，对团队说辛苦了'},
-     {role:'ai',text:'정말 즐거웠어요! 다음에 또 모여요~',hint:'约定下次再聚'}
-   ]},
+     {role:'ai',text:'정말 즐거웠어요! 다음에 또 모여요~',hint:'约定下次再聚'},
+     {role:'ai',text:'자, 건배사 한번 하시죠! 🍻',hint:'致祝酒词'},
+     {role:'ai',text:'멋진 건배사였어요! 다들 고생 많으셨습니다! 오늘은 1차만 하고 다음에 또 모여요~ 🎉',hint:'感谢团队，约定下次'}
+   ],
+   vocabulary:[
+     {kr:'회식',cn:'聚餐',pron:'hoe-sik',usage:'团队聚餐'},
+     {kr:'건배',cn:'干杯',pron:'geon-bae',usage:'举杯祝酒'},
+     {kr:'1차',cn:'第一轮',pron:'il-cha',usage:'聚餐轮次'},
+     {kr:'2차',cn:'第二轮',pron:'i-cha',usage:'续摊'},
+     {kr:'고생',cn:'辛苦',pron:'go-saeng',usage:'感谢付出'},
+     {kr:'분위기',cn:'氛围',pron:'bun-wi-gi',usage:'聚会气氛'},
+     {kr:'건배사',cn:'祝酒词',pron:'geon-bae-sa',usage:'祝酒仪式'},
+     {kr:'친목',cn:'增进感情',pron:'chin-mok',usage:'团队建设'}
+   ]
+  },
   {day:28,title:'年度评估',emoji:'📈',scene:'年底了，要做年度绩效评估。回顾一年的成长，用韩语展示你的工作成果！',
    quiz:{emoji:'📈📊🎯',q:'你想说"有改进点"，用韩语怎么说？',opts:['개선할 점이 있습니다','개선할 점이 없습니다','개선이 싫습니다','개선하고 싶지 않습니다'],ans:0},
    expressions:[
@@ -608,13 +992,28 @@ const COURSE = [
      {kr:'개선할 점이 있습니다',cn:'有改进点',pron:'gae-seon-hal jeom-i it-seum-ni-da',usage:'承认不足'},
      {kr:'목표 달성률은 ___%입니다',cn:'目标达成率___%',pron:'mok-pyo dal-seong-nyu-reun ___%-im-ni-da',usage:'量化成果'},
      {kr:'내년 계획을 말씀드리겠습니다',cn:'说明明年计划',pron:'nae-nyeon gye-hoeg-eul mal-sseum-deu-ri-get-seum-ni-da',usage:'展望未来'},
-     {kr:'피드백 감사합니다',cn:'感谢反馈',pron:'pi-deu-baek gam-sa-ham-ni-da',usage:'接受评价'}
+     {kr:'피드백 감사합니다',cn:'感谢反馈',pron:'pi-deu-baek gam-sa-ham-ni-da',usage:'接受评价'},
+     {kr:'셀프 어세스먼트 제출하겠습니다',cn:'提交自我评估',pron:'sel-peu eo-se-seu-meon-teu je-chul-ha-get-seum-ni-da',usage:'自我评估'},
+     {kr:'커리어 패스를 상담하고 싶습니다',cn:'想咨询职业发展',pron:'keo-ri-eo pae-seu-reul sang-dam-ha-go sip-seum-ni-da',usage:'职业规划'}
    ],
    dialogue:[
      {role:'ai',text:'올해 성과 평가 시작하겠습니다. 먼저 본인 성과를 정리해 주세요.',hint:'整理今年成果'},
      {role:'ai',text:'좋은 성과네요! 개선할 점도 있으신가요?',hint:'承认改进点，说明达成率'},
-     {role:'ai',text:'솔직해서 좋습니다. 내년 계획도 말씀해 주세요.',hint:'说明明年计划，感谢反馈'}
-   ]},
+     {role:'ai',text:'솔직해서 좋습니다. 내년 계획도 말씀해 주세요.',hint:'说明明年计划，感谢反馈'},
+     {role:'ai',text:'셀프 어세스먼트 잘 봤습니다. 커리어 패스에 대해 상담하고 싶으신가요?',hint:'咨询职业发展或请求指导'},
+     {role:'ai',text:'좋은 질문이에요! 멘토링 프로그램도 연결해 드릴게요. 계속 성장하시길 응원합니다! 📈',hint:'感谢反馈，表达成长愿望'}
+   ],
+   vocabulary:[
+     {kr:'평가',cn:'评估',pron:'pyeong-ga',usage:'绩效评估'},
+     {kr:'성과',cn:'成果',pron:'seong-gwa',usage:'工作成绩'},
+     {kr:'개선',cn:'改进',pron:'gae-seon',usage:'自我提升'},
+     {kr:'목표',cn:'目标',pron:'mok-pyo',usage:'设定目标'},
+     {kr:'달성률',cn:'达成率',pron:'dal-seong-nyu',usage:'量化评估'},
+     {kr:'커리어',cn:'职业',pron:'keo-ri-eo',usage:'职业发展'},
+     {kr:'멘토링',cn:'指导',pron:'men-to-ring',usage:'职业辅导'},
+     {kr:'피드백',cn:'反馈',pron:'pi-deu-baek',usage:'接受评价'}
+   ]
+  },
   {day:29,title:'晋升面谈',emoji:'⬆️',scene:'经理找你谈话，说要推荐你晋升！这是你在公司的重要时刻，用韩语表达你的决心！',
    quiz:{emoji:'⬆️🏆💪',q:'你想说"请承担更大的角色"，用韩语怎么说？',opts:['더 큰 역할을 맡아 주세요','더 큰 역할이 싫습니다','더 큰 역할이 어렵습니다','더 큰 역할이 필요 없습니다'],ans:0},
    expressions:[
@@ -622,13 +1021,28 @@ const COURSE = [
      {kr:'더 큰 역할을 맡아 주세요',cn:'请承担更大的角色',pron:'deo keun yeok-hal-eul ma-ja ju-se-yo',usage:'赋予期望'},
      {kr:'책임감이 돋보였습니다',cn:'责任感突出',pron:'chaeg-im-gam-i dod-bo-yeot-seum-ni-da',usage:'肯定品质'},
      {kr:'리더십을 보여 주셨습니다',cn:'展现了领导力',pron:'ri-deo-sip-eul bo-yeo ju-syeot-seum-ni-da',usage:'认可能力'},
-     {kr:'감사합니다, 최선을 다하겠습니다',cn:'谢谢，我会尽全力',pron:'gam-sa-ham-ni-da, choe-seon-eul da-ha-get-seum-ni-da',usage:'接受晋升'}
+     {kr:'감사합니다, 최선을 다하겠습니다',cn:'谢谢，我会尽全力',pron:'gam-sa-ham-ni-da, choe-seon-eul da-ha-get-seum-ni-da',usage:'接受晋升'},
+     {kr:'새로운 챌린지를 기대합니다',cn:'期待新的挑战',pron:'sae-ro-un chel-lin-ji-reul gi-dae-ham-ni-da',usage:'表达期待'},
+     {kr:'더 큰 책임을 지겠습니다',cn:'承担更大责任',pron:'deo keun chaeg-im-eul ji-get-seum-ni-da',usage:'表达担当'}
    ],
    dialogue:[
      {role:'ai',text:'이번 승진 제안드리고 싶습니다. 그동안 책임감이 정말 돋보였어요.',hint:'表达感谢'},
      {role:'ai',text:'리더십도 보여 주셨고요. 더 큰 역할을 맡아 주셨으면 합니다.',hint:'表示会承担更大角色'},
-     {role:'ai',text:'확신을 주셔서 감사합니다. 최선을 다하겠습니다!',hint:'表达感谢和决心'}
-   ]},
+     {role:'ai',text:'확신을 주셔서 감사합니다. 최선을 다하겠습니다!',hint:'表达感谢和决心'},
+     {role:'ai',text:'승진 축하드려요! 새로운 챌린지에 대해 어떻게 생각하시나요?',hint:'表达对新挑战的期待'},
+     {role:'ai',text:'좋은 자세예요! 더 큰 책임을 지면서 팀 리드 역할도 기대하겠습니다. 응원합니다! 💎',hint:'表达担当和决心'}
+   ],
+   vocabulary:[
+     {kr:'승진',cn:'晋升',pron:'seung-jin',usage:'职级提升'},
+     {kr:'역할',cn:'角色',pron:'yeok-hal',usage:'岗位角色'},
+     {kr:'책임감',cn:'责任感',pron:'chaeg-im-gam',usage:'品质评价'},
+     {kr:'리더십',cn:'领导力',pron:'ri-deo-sip',usage:'能力认可'},
+     {kr:'챌린지',cn:'挑战',pron:'chel-lin-ji',usage:'新任务'},
+     {kr:'제안',cn:'提议',pron:'je-an',usage:'正式提议'},
+     {kr:'최선',cn:'尽力',pron:'choe-seon',usage:'全力以赴'},
+     {kr:'확신',cn:'信心',pron:'hwak-sin',usage:'坚定信心'}
+   ]
+  },
   {day:30,title:'成为独立AE',emoji:'🎓',scene:'恭喜你！30天的韩语学习之旅圆满结束！从韩语小白到能独立沟通的AE，你做到了！',
    quiz:{emoji:'🎓🎊🏆',q:'你想说"加油！"，用韩语怎么说？',opts:['화이팅!','안녕!','미안!','건배!'],ans:0},
    expressions:[
@@ -636,13 +1050,28 @@ const COURSE = [
      {kr:'자신감이 생겼습니다',cn:'有了自信',pron:'ja-sin-gam-i saeng-gyeot-seum-ni-da',usage:'表达蜕变'},
      {kr:'앞으로도 잘 부탁드립니다',cn:'今后也请多关照',pron:'ap-eu-ro-do jal bu-tak-deu-rim-ni-da',usage:'持续谦虚'},
      {kr:'함께 성장합시다',cn:'一起成长吧',pron:'ham-gge seong-jang-hap-si-da',usage:'展望未来'},
-     {kr:'화이팅!',cn:'加油！',pron:'hwa-i-ting',usage:'永远鼓励'}
+     {kr:'화이팅!',cn:'加油！',pron:'hwa-i-ting',usage:'永远鼓励'},
+     {kr:'30일간 정말 많이 배웠습니다',cn:'30天学到了很多',pron:'sa-mil-il-gan jeong-mal man-i bae-wot-seum-ni-da',usage:'回顾成长'},
+     {kr:'계속 성장하는 AE가 되겠습니다',cn:'成为持续成长的AE',pron:'gye-sok seong-jang-ha-neun AE-ga doe-get-seum-ni-da',usage:'未来承诺'}
    ],
    dialogue:[
      {role:'ai',text:'축하합니다! 30일 동안 정말 열심히 하셨어요. 이제 독립적인 AE예요! 🎉',hint:'表达有了自信'},
      {role:'ai',text:'자신감이 눈에 보이네요! 앞으로도 잘 부탁드립니다~',hint:'今后也请多关照'},
-     {role:'ai',text:'네, 함께 성장합시다! 화이팅! 💪🎉',hint:'一起成长，加油！'}
-   ]}
+     {role:'ai',text:'네, 함께 성장합시다! 화이팅! 💪🎉',hint:'一起成长，加油！'},
+     {role:'ai',text:'이제 혼자서 클라이언트 미팅도 가능하시겠네요! 30일간 정말 많이 배우셨어요. 🎓',hint:'回顾成长，表示可以独立'},
+     {role:'ai',text:'정말 대단해요! 앞으로도 계속 성장하는 AE가 되길 바랄게요. 화이팅! 🎉💪🇰🇷',hint:'表达持续成长的决心'}
+   ],
+   vocabulary:[
+     {kr:'독립',cn:'独立',pron:'dok-nip',usage:'独立工作'},
+     {kr:'자신감',cn:'自信',pron:'ja-sin-gam',usage:'个人成长'},
+     {kr:'성장',cn:'成长',pron:'seong-jang',usage:'持续进步'},
+     {kr:'화이팅',cn:'加油',pron:'hwa-i-ting',usage:'永远鼓励'},
+     {kr:'졸업',cn:'毕业',pron:'jo-reop',usage:'课程完成'},
+     {kr:'도약',cn:'飞跃',pron:'do-yak',usage:'能力提升'},
+     {kr:'경험',cn:'经验',pron:'gyeong-heom',usage:'实践积累'},
+     {kr:'미래',cn:'未来',pron:'mi-rae',usage:'展望未来'}
+   ]
+  }
 ];
 
 // ============ STATE ============
@@ -658,7 +1087,6 @@ function speakKorean(text, btn){
   u.lang='ko-KR';
   u.rate=0.85;
   u.pitch=1.0;
-  // Try to find a Korean voice
   const voices=window.speechSynthesis.getVoices();
   const koreanVoice=voices.find(v=>v.lang.startsWith('ko'));
   if(koreanVoice){u.voice=koreanVoice}
@@ -675,7 +1103,6 @@ function stopSpeaking(){
   document.querySelectorAll('.speak-btn.playing,.speak-btn-sm.playing').forEach(b=>b.classList.remove('playing'));
   currentUtterance=null;
 }
-// Preload voices
 if(window.speechSynthesis){
   window.speechSynthesis.getVoices();
   window.speechSynthesis.onvoiceschanged=()=>{window.speechSynthesis.getVoices()};
@@ -748,7 +1175,7 @@ function startDay(day){
   showPage('page-lesson');
 }
 
-const STEPS=['🎬 场景','🖼 图片题','📚 学习','🎭 对话','📝 评分','🏆 奖励'];
+const STEPS=['🎬 场景','🖼 图片题','📚 学习','🎭 对话','📝 词汇','📊 评分','🏆 奖励'];
 
 function renderStepBar(){
   const bar=document.getElementById('step-bar');
@@ -768,8 +1195,9 @@ function renderStep(){
     case 1:renderQuiz(container);break;
     case 2:renderLearn(container);break;
     case 3:renderDialogue(container);break;
-    case 4:renderScore(container);break;
-    case 5:renderReward(container);break;
+    case 4:renderVocabulary(container);break;
+    case 5:renderScore(container);break;
+    case 6:renderReward(container);break;
   }
 }
 
@@ -850,7 +1278,6 @@ function renderDialogue(c){
       <button class="chat-send" onclick="sendMsg()">➤</button>
     </div>`;
   renderChat();
-  // Auto-read first AI message
   const koreanText=aiFirst.text.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[👋😊💪🤝🏢🗣️✨📋❓📝📊🎤👔👥✏️🔄💬📞📧🔍⚠️⏰💰📈🍽️🥢😊🤝📅🕐💡🎙️🍽️🥢]/gu,'').trim();
   setTimeout(()=>speakKorean(koreanText),500);
 }
@@ -860,7 +1287,6 @@ function renderChat(){
   if(!area)return;
   area.innerHTML=dialogueMessages.map((m,i)=>{
     if(m.role==='ai'){
-      // Extract Korean text from AI message (remove emoji and hints)
       const koreanText=m.text.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[👋😊💪🤝🏢🗣️✨📋❓📝📊🎤👔👥✏️🔄💬📞📧🔍⚠️⏰💰📈🍽️🥢😊🤝📅🕐💡🎙️🍽️🥢]/gu,'').trim();
       return `<div class="msg ai">
         <div class="avatar-sm">👩‍💼</div>
@@ -886,7 +1312,6 @@ function sendMsg(){
   dialogueMessages.push({role:'user',text});
   renderChat();
 
-  // Score the user input
   const hasKorean=currentDayData.expressions.some(e=>text.includes(e.kr.split(' ')[0])||text.includes(e.kr.replace('?','').replace('!','')));
   const isChinese=/[\u4e00-\u9fff]/.test(text)&&!hasKorean;
   const isPolite=text.includes('주세요')||text.includes('감사')||text.includes('부탁')||text.includes('반갑')||text.includes('안녕')||text.includes('화이팅')||text.includes('건배')||text.includes('수고')||text.includes('请')||text.includes('谢谢')||text.includes('辛苦')||text.includes('加油');
@@ -900,12 +1325,11 @@ function sendMsg(){
   dialogueRound++;
 
   setTimeout(()=>{
-    if(dialogueRound<3){
+    if(dialogueRound<currentDayData.dialogue.length){
       const aiNext=currentDayData.dialogue[dialogueRound];
       dialogueMessages.push({role:'ai',text:aiNext.text});
       renderChat();
       document.getElementById('chat-hint').textContent='💡 '+aiNext.hint;
-      // Auto-read AI message
       const koreanText=aiNext.text.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[👋😊💪🤝🏢🗣️✨📋❓📝📊🎤👔👥✏️🔄💬📞📧🔍⚠️⏰💰📈🍽️🥢😊🤝📅🕐💡🎙️🍽️🥢]/gu,'').trim();
       speakKorean(koreanText);
     }else{
@@ -913,14 +1337,31 @@ function sendMsg(){
       renderChat();
       document.getElementById('chat-hint').textContent='';
       speakKorean('수고하셨습니다! 정말 잘하셨어요~');
-      // Show next button
       const hintDiv=document.getElementById('chat-hint');
-      hintDiv.innerHTML=`<button class="btn btn-primary btn-block" onclick="stopSpeaking();nextStep()">查看评分 📝</button>`;
+      hintDiv.innerHTML=`<button class="btn btn-primary btn-block" onclick="stopSpeaking();nextStep()">查看词汇 📝</button>`;
     }
   },600);
 }
 
-// Step 5: Score
+// Step 5: Vocabulary
+function renderVocabulary(c){
+  const vocabs=currentDayData.vocabulary||[];
+  c.innerHTML='<div class="animate-in">'+
+    '<h3 class="vocab-title">\u{1F4DD} 词汇补充</h3>'+
+    '<div class="vocab-container">'+
+      vocabs.map(function(v){return '<div class="vocab-card">'+
+        '<div class="vocab-kr"><span>'+v.kr+'</span><button class="speak-btn" onclick="speakKorean(\''+v.kr.replace(/'/g,"\\'")+'\',this)" title="点击朗读">\u{1F50A}</button></div>'+
+        '<div class="vocab-cn">'+v.cn+'</div>'+
+        '<div class="vocab-pron">'+v.pron+'</div>'+
+        '<div class="vocab-usage">\u{1F4AC} '+v.usage+'</div>'+
+      '</div>'}).join('')+
+    '</div>'+
+    '<p class="vocab-bottom-tip">这些词汇可以帮助你更好地应对今天的场景！</p>'+
+    '<button class="btn btn-primary btn-block mt-16" onclick="stopSpeaking();nextStep()">查看评分 \u{1F4DD}</button>'+
+  '</div>';
+}
+
+// Step 6: Score
 function renderScore(c){
   const u=Math.min(35,scoreData.understanding+Math.floor(Math.random()*5));
   const a=Math.min(35,scoreData.accuracy+Math.floor(Math.random()*5));
@@ -929,7 +1370,7 @@ function renderScore(c){
 
   const getLevel=(v,max)=>v>=max*0.8?'high':v>=max*0.5?'mid':'low';
   c.innerHTML=`<div class="score-container animate-in">
-    <h3 style="margin-bottom:20px;font-size:18px">📝 今日评分</h3>
+    <h3 style="margin-bottom:20px;font-size:18px">📊 今日评分</h3>
     <div class="score-ring">
       <svg width="180" height="180">
         <circle cx="90" cy="90" r="78" fill="none" stroke="#e8e8e8" stroke-width="10"/>
@@ -954,7 +1395,7 @@ function renderScore(c){
   </div>`;
 }
 
-// Step 6: Reward
+// Step 7: Reward
 function renderReward(c){
   const oldXp=state.xp;
   const newXp=oldXp+10;
@@ -987,7 +1428,7 @@ function renderReward(c){
 
 function nextStep(){
   currentStep++;
-  if(currentStep>=6){goHome();return}
+  if(currentStep>=7){goHome();return}
   renderStep();
 }
 
