@@ -72,10 +72,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 /* Step 3: Learn */
 .learn-list{display:flex;flex-direction:column;gap:14px}
 .learn-card{background:#fff;border-radius:12px;padding:16px;border-left:4px solid var(--primary);box-shadow:0 1px 4px rgba(0,0,0,0.06)}
-.learn-card .korean{font-size:22px;font-weight:700;color:var(--primary);margin-bottom:4px}
+.learn-card .korean-row{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.learn-card .korean{font-size:22px;font-weight:700;color:var(--primary)}
+.learn-card .speak-btn{width:32px;height:32px;border-radius:50%;border:none;background:rgba(74,144,217,0.1);color:var(--primary);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:.2s;flex-shrink:0}
+.learn-card .speak-btn:hover{background:rgba(74,144,217,0.2);transform:scale(1.1)}
+.learn-card .speak-btn.playing{background:var(--primary);color:#fff;animation:pulse .8s ease infinite}
 .learn-card .pron{font-size:13px;color:var(--coral);margin-bottom:4px;font-style:italic}
 .learn-card .chinese{font-size:14px;color:var(--dark);margin-bottom:4px}
 .learn-card .usage{font-size:12px;color:var(--gray);background:var(--light);padding:4px 10px;border-radius:6px;display:inline-block}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
 
 /* Step 4: Dialogue */
 .chat-area{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;-webkit-overflow-scrolling:touch}
@@ -86,7 +91,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Korean',sans-serif
 .msg.ai .avatar-sm{background:linear-gradient(135deg,var(--primary),#357ABD);color:#fff}
 .msg.user .avatar-sm{background:var(--coral);color:#fff}
 .msg .bubble{padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.5}
-.msg.ai .bubble{background:#fff;border:1px solid var(--border);border-top-left-radius:4px}
+.msg.ai .bubble{background:#fff;border:1px solid var(--border);border-top-left-radius:4px;position:relative}
+.msg.ai .bubble .speak-btn-sm{position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:50%;border:none;background:rgba(74,144,217,0.08);color:var(--primary);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:.2s;opacity:.6}
+.msg.ai .bubble .speak-btn-sm:hover{opacity:1;background:rgba(74,144,217,0.15)}
+.msg.ai .bubble .speak-btn-sm.playing{opacity:1;background:var(--primary);color:#fff}
+.msg.ai .bubble .bubble-text{padding-right:20px}
 .msg.user .bubble{background:var(--primary);color:#fff;border-top-right-radius:4px}
 .chat-input-area{padding:12px 16px;background:#fff;border-top:1px solid var(--border);display:flex;gap:8px}
 .chat-input{flex:1;border:2px solid var(--border);border-radius:24px;padding:10px 16px;font-size:14px;outline:none;transition:.2s}
@@ -638,6 +647,39 @@ const COURSE = [
 
 // ============ STATE ============
 let state = {xp:0, completedDays:[], currentDay:1};
+
+// ============ TTS (Text-to-Speech) ============
+let currentUtterance=null;
+function speakKorean(text, btn){
+  if(!window.speechSynthesis){return}
+  window.speechSynthesis.cancel();
+  if(currentUtterance){stopSpeaking()}
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='ko-KR';
+  u.rate=0.85;
+  u.pitch=1.0;
+  // Try to find a Korean voice
+  const voices=window.speechSynthesis.getVoices();
+  const koreanVoice=voices.find(v=>v.lang.startsWith('ko'));
+  if(koreanVoice){u.voice=koreanVoice}
+  if(btn){
+    btn.classList.add('playing');
+    u.onend=()=>{btn.classList.remove('playing');currentUtterance=null};
+    u.onerror=()=>{btn.classList.remove('playing');currentUtterance=null};
+  }
+  currentUtterance=u;
+  window.speechSynthesis.speak(u);
+}
+function stopSpeaking(){
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.speak-btn.playing,.speak-btn-sm.playing').forEach(b=>b.classList.remove('playing'));
+  currentUtterance=null;
+}
+// Preload voices
+if(window.speechSynthesis){
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged=()=>{window.speechSynthesis.getVoices()};
+}
 function loadState(){
   try{const s=localStorage.getItem('korean_game');if(s)state=JSON.parse(s)}catch(e){}
 }
@@ -748,7 +790,10 @@ function renderQuiz(c){
     <div class="quiz-scene">${q.emoji}</div>
     <div class="quiz-question">${q.q}</div>
     <div class="quiz-options" id="quiz-opts">
-      ${q.opts.map((o,i)=>`<div class="quiz-option" onclick="selectQuiz(${i})">${o}</div>`).join('')}
+      ${q.opts.map((o,i)=>`<div class="quiz-option" onclick="selectQuiz(${i})" style="display:flex;align-items:center;justify-content:space-between">
+        <span>${o}</span>
+        ${/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(o)?`<button class="speak-btn" onclick="event.stopPropagation();speakKorean('${o.replace(/'/g,"\\'")}',this)" style="width:28px;height:28px;font-size:13px" title="朗读">🔊</button>`:''}
+      </div>`).join('')}
     </div>
     <div id="quiz-result" style="margin-top:16px"></div>
   </div>`;
@@ -779,15 +824,18 @@ function renderLearn(c){
   c.innerHTML=`<div class="animate-in">
     <h3 style="margin-bottom:16px;font-size:18px">📖 今日核心表达</h3>
     <div class="learn-list">
-      ${exprs.map(e=>`<div class="learn-card">
-        <div class="korean">${e.kr}</div>
-        <div class="pron">🔊 ${e.pron}</div>
+      ${exprs.map((e,i)=>`<div class="learn-card">
+        <div class="korean-row">
+          <span class="korean">${e.kr}</span>
+          <button class="speak-btn" onclick="speakKorean('${e.kr.replace(/'/g,"\\'")}',this)" title="点击朗读">🔊</button>
+        </div>
+        <div class="pron">${e.pron}</div>
         <div class="chinese">${e.cn}</div>
         <div class="usage">💬 ${e.usage}</div>
       </div>`).join('')}
     </div>
-    <p style="text-align:center;color:var(--gray);font-size:13px;margin-top:16px">💡 记住这些表达，在接下来的对话中使用吧！</p>
-    <button class="btn btn-primary btn-block mt-16" onclick="nextStep()">开始对话 🎭</button>
+    <p style="text-align:center;color:var(--gray);font-size:13px;margin-top:16px">🔊 点击韩语旁的喇叭按钮可以听发音</p>
+    <button class="btn btn-primary btn-block mt-16" onclick="stopSpeaking();nextStep()">开始对话 🎭</button>
   </div>`;
 }
 
@@ -802,16 +850,31 @@ function renderDialogue(c){
       <button class="chat-send" onclick="sendMsg()">➤</button>
     </div>`;
   renderChat();
+  // Auto-read first AI message
+  const koreanText=aiFirst.text.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[👋😊💪🤝🏢🗣️✨📋❓📝📊🎤👔👥✏️🔄💬📞📧🔍⚠️⏰💰📈🍽️🥢😊🤝📅🕐💡🎙️🍽️🥢]/gu,'').trim();
+  setTimeout(()=>speakKorean(koreanText),500);
 }
 
 function renderChat(){
   const area=document.getElementById('chat-area');
   if(!area)return;
-  area.innerHTML=dialogueMessages.map(m=>`
-    <div class="msg ${m.role}">
-      <div class="avatar-sm">${m.role==='ai'?'👩‍💼':'🧑‍💻'}</div>
+  area.innerHTML=dialogueMessages.map((m,i)=>{
+    if(m.role==='ai'){
+      // Extract Korean text from AI message (remove emoji and hints)
+      const koreanText=m.text.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[👋😊💪🤝🏢🗣️✨📋❓📝📊🎤👔👥✏️🔄💬📞📧🔍⚠️⏰💰📈🍽️🥢😊🤝📅🕐💡🎙️🍽️🥢]/gu,'').trim();
+      return `<div class="msg ai">
+        <div class="avatar-sm">👩‍💼</div>
+        <div class="bubble">
+          <span class="bubble-text">${m.text}</span>
+          <button class="speak-btn-sm" onclick="speakKorean('${koreanText.replace(/'/g,"\\'")}',this)" title="朗读">🔊</button>
+        </div>
+      </div>`;
+    }
+    return `<div class="msg user">
+      <div class="avatar-sm">🧑‍💻</div>
       <div class="bubble">${m.text}</div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
   area.scrollTop=area.scrollHeight;
 }
 
@@ -842,13 +905,17 @@ function sendMsg(){
       dialogueMessages.push({role:'ai',text:aiNext.text});
       renderChat();
       document.getElementById('chat-hint').textContent='💡 '+aiNext.hint;
+      // Auto-read AI message
+      const koreanText=aiNext.text.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[👋😊💪🤝🏢🗣️✨📋❓📝📊🎤👔👥✏️🔄💬📞📧🔍⚠️⏰💰📈🍽️🥢😊🤝📅🕐💡🎙️🍽️🥢]/gu,'').trim();
+      speakKorean(koreanText);
     }else{
       dialogueMessages.push({role:'ai',text:'수고하셨습니다! 정말 잘하셨어요~ 😊'});
       renderChat();
       document.getElementById('chat-hint').textContent='';
+      speakKorean('수고하셨습니다! 정말 잘하셨어요~');
       // Show next button
       const hintDiv=document.getElementById('chat-hint');
-      hintDiv.innerHTML=`<button class="btn btn-primary btn-block" onclick="nextStep()">查看评分 📝</button>`;
+      hintDiv.innerHTML=`<button class="btn btn-primary btn-block" onclick="stopSpeaking();nextStep()">查看评分 📝</button>`;
     }
   },600);
 }
